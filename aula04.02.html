@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="PT-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lóg. de Prog. A:04.02</title>
+</head>
+<body>
+    <h1 style="color: white; background-color: black; font-size: 1.6rem;">
+        Lógica de programação com Javascript
+    </h1>
+
+    
+    <h2>
+        <strong style="color: tomato;"> --PROBLEMA-- </strong>
+        <ol style="color: blue">
+            <li>Pedir para o usuário digitar dois números que represetam os lados de um retangulo</li>
+            <li>Isso, assim que a página for carregada</li>
+            <li>Mostrar na tela a área total quando clicar num botão</li>
+    </h2>
+    
+    <button onclick="mostrarArea(largura, altura)">Calcular área</button>
+    
+    <div id="output">Lado x Lado</div>
+    
+    <script>
+        
+        var largura = parseFloat(prompt("Digite a largura"));
+        var altura = parseFloat(prompt("Digite a altura"));
+        
+        function mostrarArea(l, a){
+            alert('Área total é: ' + (l * a));
+        }
+
+    </script>
+</body>
+</html>

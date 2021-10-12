@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="PT-BR">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Lóg. de Prog. A:03.01.Ex.2</title>
+    </head>
+    <body>
+
+        <h1 style="color: white; background-color: black; font-size: 1.6rem;">
+            Lógica  de programação com Javascript
+        </h1>
+
+        <h2>
+            <strong style="color: tomato;"> --PROBLEMA-- </strong>
+            <ol style="color: blue">
+                <li>Mostrar anos bissextos até 2021.</li>
+                <li>Com início em 1004</li>
+                <li>O ano não pode ser um multiplo de 100</li>
+                <li>O ano será bissexto se for um multiplo de 400</li>
+            </ol>
+        </h2>
+        
+
+        <script>
+            var ano = 1004;
+
+            while(ano <= 2021){
+
+                if( !(ano % 100 === 0) || (ano % 400 === 0)){
+                document.write(ano + ' <br>');
+
+                } else {
+                    document.write(ano + 'não é ano bissexto!<br>');
+
+                }
+
+                //ano = ano + 4;
+                ano += 4;
+            }
+            
+            
+        //  for
+        //  while
+        //  do ... while
+
+        //    || -> ou / or
+        //    && -> e / and
+        //    !  -> não / not
+        </script>
+    </body>
+</html>

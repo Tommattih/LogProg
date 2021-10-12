@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="PT-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lóg. de Prog. A:02.04</title>
+</head>
+<body>
+    <h1 style="color: white; background-color: black; font-size: 1.6rem;">
+        Lógica  de programação com Javascript
+    </h1>
+
+    <h2>
+        <strong style="color: tomato;"> --PROBLEMA-- </strong>
+
+        <p style="color: blue">Pedir para o usuário digitar dois números e mostrar um boolean indicando se a média for maior que 5</p>
+    </h2>
+    
+    
+    <script>
+        var num1 = prompt("Digite um número");
+        num1 = parseFloat(num1);
+        //num1 = parseFloat(prompt("digite um número")); 
+        //**é a mesma dunção, porém em uma única linha
+
+
+        var num2 = prompt("Digite mais um número");
+        num2 = parseFloat(num2);
+
+        var media = (num1 + num2) / 2;
+        
+        alert(media > 5);
+        //comparativos convertem em boolean 
+    </script>
+</body>
+</html>

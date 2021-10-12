@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="PT-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lóg. de Prog. A:02.02.Ex</title>
+</head>
+<body>
+    <h1 style="color: white; background-color: black; font-size: 1.6rem;">
+        Lógica de programação com Javascript
+    </h1>
+
+    <h2>
+        <strong style="color: tomato;"> --PROBLEMA-- </strong>
+        <ol style="color: blue">
+            <li>Pedir para o usuário digitar um número</li>
+            <li>Converter em um número inteiro</li>
+            <li>Pedir para o usuário digitar outro número</li>
+            <li>Converter em número inteiro</li>
+            <li>Mostrar a subtração concatenando com o texto "a subtração é:..."</li>
+            <li>Mostrar a multiplicação concatenando com o texto "a multiplicação é: ..."</li>
+            <li>Mostrar a divisão concatenando com o texto "a divisão é: ..."</li>
+            <li>Mostrar a soma concatenando com o texto "a soma é: ..."</li>
+        </ol>
+    </h2>
+    
+    <script>
+        var num1 = prompt("Digite um número"); //1
+        num1 = parseInt(num1); //2
+
+        var num2 = prompt("digite outro número"); //3
+        num2 = parseInt(num2); //4
+
+        alert("A subtração é: " + (num1 - num2)); //5
+        alert("A multiplicação é: " + (num1 * num2)); //6
+        alert("A divisão é: " + (num1 / num2)); //7
+        alert("A soma é: " + (num1 + num2)); //8
+
+    </script>
+</body>
+</html>

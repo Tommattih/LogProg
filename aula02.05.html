@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="PT-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lóg. de Prog. A:02.04</title>
+</head>
+<body>
+    <h1>
+        Lógica  de programação com Javascript
+    </h1>
+
+    <h2>
+        <strong> --PROBLEMA-- </strong>
+        <p>Pedir para o usuário digitar dois números e mostrar uma mensagem informando se foi aprovado ou não. </p>
+        <p>A nota de corte é 5.</p>
+    </h2>
+    
+    
+    <script>
+        var n1 = parseFloat(prompt("Digite um número:"));
+        var n2 = parseFloat(prompt("Digite mais um número:"));
+
+        var media = (n1 + n2) / 2;
+        (media >= 5)
+
+        
+        if(media > 5){
+            alert("Parabéns! Você foi aprovado");
+
+        } else {
+            alert("Desculpe, não foi dessa vez");
+        };
+
+        //if(true){
+            //bloco verdade
+        //} else {
+            //bloco mentira
+        //};
+        //comparativos convertem em boolean 
+    </script>
+</body>
+</html>

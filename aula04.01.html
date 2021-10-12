@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="PT-BR">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Lóg. de Prog. A:04.01</title>
+    </head>
+    <body>
+
+        <h1 style="color: white; background-color: black; font-size: 1.6rem;">
+            Lógica  de programação com Javascript
+        </h1>
+
+        <h2>
+            <strong style="color: tomato;"> --PROBLEMA-- </strong>
+            <ol style="color: blue">
+                <li>Pedir para o usuário digitar um número</li>
+                <li>Mostrar a tabuada desse número de 1 a 1000</li>
+                <li>Deve ter a possibilidade do usuário digitar outro numero</li>
+                <li>E também, limpar a tabuada gerada previamente</li>
+            </ol>
+        </h2>
+        
+        <button onclick="mostrarTabuada()">Ciar tabuada</button>
+        <button onclick="limparTabuada()">Limpar tabuada</button>
+        
+        <div id="output">Resultado</div>
+        
+        <script>
+            function mostrarTabuada(){
+                limparTabuada()
+                //Perguntar o numero para o usuario
+                //converter o numero
+                var num = parseFloat(prompt('Digite um número'));
+
+                //criar uma variável que servira de indice
+                var i = 1;
+                
+                //enquanto indice <= 1000
+                while(i < 1001){
+                    //concatena na variavel 'mensagem'
+                    mensagem += num + ' x ' +  i  + ' = ' + (num*i) + '<br>';
+                    i++;
+
+                }
+                    //mostra mensagem no output            
+                output.innerHTML = mensagem;
+                // output.innerHTML = 'Text added by innerHTML on Js'
+            }
+
+            function limparTabuada(){
+                alert('Deseja excluir?');
+                mensagem = '';
+                output.innerHTML = mensagem
+            }
+
+            var output = document.querySelector('#output');
+
+            var mensagem = '';
+
+
+        //  for
+        //  while
+        //  do ... while
+
+        //  || -> ou / or
+        //  && -> e / and
+        //  !  -> não / not
+        </script>
+    </body>
+</html>
