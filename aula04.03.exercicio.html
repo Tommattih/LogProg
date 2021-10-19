@@ -27,42 +27,55 @@
         </ol>
     </h2>
     
-    <button onclick="calcular('+')">+</button>
-    <button onclick="calcular('-')">-</button>
-    <button onclick="calcular('*')">x</button>
-    <button onclick="calcular('/')">/</button>
+    <button onclick="iniciarCalculo('+')">+</button>
+    <button onclick="iniciarCalculo('-')">-</button>
+    <button onclick="iniciarCalculo('*')">x</button>
+    <button onclick="iniciarCalculo('/')">/</button>
     
-    <div id="output">Resultado:</div>
+    <div id="output">Resultado</div>
     
     <script>
         
         var num1 = parseFloat(prompt("Digite um número"));
+
+        escreve(num1);
         
-        function escreve(){
+        function iniciarCalculo(operador){
+            var num1 = parseFloat(document.querySelector('#output').textContent);
+            //parseFloat pq estava concatenando num1 como string na soma ..porém nas outras operações não
+
+            var num2 = parseFloat(prompt("Digite outro número"));
+
+            var msg = calcular(operador, num1, num2);
+
+            escreve(msg);
+        }
+
+        function escreve(numero){
             var output = document.querySelector('#output');
-            output.innerHTML = num1;
+            output.innerHTML = numero;
         }
         
-        escreve();
 
-        function calcular(operador){
-            var num2 = parseFloat(prompt("Digite outro número"));
+        function calcular(operador, num1, num2){
+            var numeroCalculado = null;
             
             switch(operador){
                 case '+': 
-                    num1 += num2;
+                    numeroCalculado = num1 + num2;
                     break;
                 case '-': 
-                    num1 -= num2;
+                    numeroCalculado = num1 - num2;
                     break;
                 case '*': 
-                    num1 *= num2;
+                    numeroCalculado = num1 * num2;
                     break;
                 case '/': 
-                    num1 /= num2;
+                    numeroCalculado = num1 / num2;
             }
 
-            escreve()
+            return numeroCalculado;
+
         }
         
         </script>

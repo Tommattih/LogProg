@@ -10,27 +10,43 @@
     <h1 style="color: white; background-color: black; font-size: 1.6rem;">
         Lógica de programação com Javascript
     </h1>
-
     
+    <button>
+        <a href="/index.html" style="color:blue;"> Página inicial</a>
+    </button>
+
     <h2>
         <strong style="color: tomato;"> --PROBLEMA-- </strong>
         <ol style="color: blue">
             <li>Pedir para o usuário digitar dois números que represetam os lados de um retangulo</li>
-            <li>Isso, assim que a página for carregada</li>
-            <li>Mostrar na tela a área total quando clicar num botão</li>
+            <li>Mostrar a área total, quando clicar em um botão, em um alert e em um output</li>
+            <li>Não precisa rodar assim que a página for carregada</li>
     </h2>
     
-    <button onclick="mostrarArea(largura, altura)">Calcular área</button>
+    <button onclick="mostrarAreaAlert()">Exibir área: Alert</button>
+    <button onclick="mostrarAreaOutput()">Exibir área: Output</button>
     
     <div id="output">Lado x Lado</div>
     
     <script>
         
-        var largura = parseFloat(prompt("Digite a largura"));
-        var altura = parseFloat(prompt("Digite a altura"));
+        function mostrarAreaAlert(){
+            var largura = parseFloat(prompt("Digite a largura"));
+            var altura = parseFloat(prompt("Digite a altura"));
+            var area = calcularArea(largura, altura);
+            alert('A área de ' + largura + ' x ' + altura + ' é: ' + area);
+        }
+        function mostrarAreaOutput(){
+            var largura = parseFloat(prompt("Digite a largura"));
+            var altura = parseFloat(prompt("Digite a altura"));
+            var area = calcularArea(largura, altura);
+            document.querySelector('#output').innerHTML = 'A área de ' + largura + ' x ' + altura + ' é: ' + area;
+            //var output = document.querySelector('#output'); não é necessario armazenar em uma variável para chamar dentro da function
+            //pode-se apenas fazer a seleção e passar o valor a ser exibido.
+        }
         
-        function mostrarArea(l, a){
-            alert('Área total é: ' + (l * a));
+        function calcularArea(l, a){
+            return l * a;
         }
 
     </script>

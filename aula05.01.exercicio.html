@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="PT-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lóg. de Prog. A:05.01/E</title>
+</head>
+<body>
+    <h1 style="color: white; background-color: black; font-size: 1.6rem;">
+        Lógica de programação com Javascript
+    </h1>
+    
+    <button>
+        <a href="/index.html" style="color:blue;"> Página inicial</a>
+    </button>
+
+    <h2>
+        <strong style="color: tomato;"> --PROBLEMA-- </strong>
+        <ol style="color: blue">
+            <li>Pedir para o usuário digitar dois números que represetam os lados de um retangulo</li>
+            <li>Mostrar na tela a área total</li>
+            <li>Isso deve ser executado assim que a página for carregada, e também quando clicar em um botão</li>
+            <li>Fazer tratamento de erro para caso a entrada não seja um número.</li>
+    </h2>
+    
+    <button onclick="calcularArea()">Calcular área</button>
+    
+    <div id="output">Lado x Lado</div>
+    
+    <script>
+        function calcularArea(l, a){
+            
+            var largura = parseFloat(prompt("Digite a largura"));
+            var altura = parseFloat(prompt("Digite a altura"));
+            
+            
+            try{
+                var area = largura * altura;
+                if( isNaN(largura) || isNaN(altura )){
+                    throw new Error('Entrada inválida. Somente números são aceitos!')
+                }
+            } catch(e){
+                alert(e)
+                return document.querySelector('#output').innerHTML = 'Entrada inválida';
+            }
+
+            return document.querySelector('#output').innerHTML = 'Área total é: ' + area;;
+        }
+        
+        calcularArea();
+
+
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="PT-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lóg. de Prog. A:05.01</title>
+</head>
+<body>
+    <h1 style="color: white; background-color: black; font-size: 1.6rem;">
+        Lógica de programação com Javascript
+    </h1>
+    
+    <button>
+        <a href="/index.html" style="color:blue;"> Página inicial</a>
+    </button>
+
+    <h2>
+        <strong style="color: tomato;"> --PROBLEMA-- </strong>
+        <ol style="color: blue">
+            <li>Pedir para o usuário digitar um número</li>
+            <li>Converter em um número inteiro</li>
+            <li>Exibir botões com os operadores matemáticos</li>
+            <li>Ao clicar no operador, pedir pra inserir outro número</li>
+            <li>Concatenar o resultado a cada nova operação</li>
+            <li>Código aprimorado, função única que aproveite o input dos operadores</li>
+        </ol>
+    </h2>
+    
+    <button onclick="iniciarCalculo('+')">+</button>
+    <button onclick="iniciarCalculo('-')">-</button>
+    <button onclick="iniciarCalculo('*')">x</button>
+    <button onclick="iniciarCalculo('/')">/</button>
+    
+    <div id="output">Resultado</div>
+    
+    <script>
+        
+        var num1 = parseFloat(prompt("Digite um número"));
+
+        escreve(num1);
+        
+        function iniciarCalculo(operador){
+            var num1 = parseFloat(document.querySelector('#output').textContent);
+            //parseFloat pq estava concatenando num1 como string na soma ..porém nas outras operações não
+
+            var num2 = parseFloat(prompt("Digite outro número"));
+
+            
+            try{                
+                var msg = calcular(operador, num1, num2);
+            } catch(e) {
+                alert(e);
+                return;
+            }
+
+            escreve(msg);
+        }
+
+        function escreve(numero){
+            var output = document.querySelector('#output');
+            output.innerHTML = numero;
+        }
+        
+
+        function calcular(operador, num1, num2){
+            if(operador !== '+' && operador !== '-' && operador !== '*' && operador !== '/'){
+                alert('Digite um operador válido!')
+                return 0;
+            }
+
+            if( isNaN(num1) || isNaN(num2) ){
+                throw new Error('As operações funcionam apenas com números!') //cria um novo modelo de erro
+            }
+
+            var numeroCalculado = null;
+            
+            switch(operador){
+                case '+': 
+                    numeroCalculado = num1 + num2;
+                    break;
+                case '-': 
+                    numeroCalculado = num1 - num2;
+                    break;
+                case '*': 
+                    numeroCalculado = num1 * num2;
+                    break;
+                case '/': 
+                    numeroCalculado = num1 / num2;
+            }
+
+            return numeroCalculado;
+
+        }
+        
+        </script>
+</body>
+</html>
