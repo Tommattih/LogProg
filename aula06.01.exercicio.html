@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Lóg. de Prog. A:01.01</title>
+    <title>Lóg. de Prog. A:06.01/E</title>
   </head>
   <body>
     <h1 style="color: white; background-color: black; font-size: 1.6rem">
@@ -17,14 +17,27 @@
 
     <h2>
       <strong style="color: tomato"> --PROBLEMA-- </strong>
+      <!-- <ol style="color: blue"> -->
       <p style="color: blue">
-        Primeiro o clássico "Hello world!" e em português também
+        Mostrar na tela um alert com uma saudação que diz qual é o dia da semana
+        de acordo com a data de acesso do usuário.
       </p>
     </h2>
 
     <script>
-      alert('Hello world!')
-      alert('Olá mundo!')
+      var dias = new Array(
+        'Domingo',
+        'Segunda',
+        'Terça',
+        'Quarta',
+        'Quinta',
+        'Sexta',
+        'Sábado'
+      )
+      var hoje = new Date()
+      var diaDaSemana = hoje.getDay()
+
+      alert('Olá, hoje é ' + dias[diaDaSemana])
     </script>
   </body>
 </html>

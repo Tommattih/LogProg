@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="PT-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lóg. de Prog. A:06.03</title>
+</head>
+<body>
+    <h1 style="color: white; background-color: black; font-size: 1.6rem;">
+        Lógica de programação com Javascript
+    </h1>
+    
+    <button>
+        <a href="/index.html" style="color:blue;"> Página inicial</a>
+    </button>
+
+    <h2>
+        <strong style="color: tomato;"> --PROBLEMA-- </strong>
+        <ol style="color: blue">
+            <li>Mostrar na tela dados de produtos</li>
+            <li>Precisa conter a quantidade em estoque e o preço</li>
+            <li>Estes dados precisam estar agrupados em um array de objetos</li>
+    </h2>
+        
+    <div id="output">Produtos</div>
+    
+    <script>
+      var produtos = [
+        {'nome': 'Maçã', 'preco': 0.60, 'estoque': 6}, 
+        {'nome': 'Banana', 'preco': 1.20, 'estoque': 12}, 
+        {'nome': 'Mamão', 'preco': 3.50, 'estoque': 3}
+      ]
+
+      var msg = ''
+      for(var i = 0; i < produtos.length; i++){
+        msg += `<h2>Produto: ${produtos[i].nome}</h2>`
+        msg += `<p>Preço R$: ${produtos[i].preco}</p>`
+        msg += `<p>Estoque: ${produtos[i].estoque}</p>`
+
+        //o exemplo da instrução era: msg += "<h2>Produto: " + produtos[i].nome + "</h2>"
+
+      }
+
+      document.querySelector('#output').innerHTML = msg
+
+    </script>
+</body>
+</html>

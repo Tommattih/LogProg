@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="PT-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lóg. de Prog. A:05.01/Ex.Resp</title>
+</head>
+<body>
+    <h1 style="color: white; background-color: black; font-size: 1.6rem;">
+        Lógica de programação com Javascript
+    </h1>
+    
+    <button>
+        <a href="/index.html" style="color:blue;"> Página inicial</a>
+    </button>
+
+    <h2>
+        <strong style="color: tomato;"> --PROBLEMA-- </strong>
+        <ol style="color: blue">
+            <li>Pedir para o usuário digitar dois números que represetam os lados de um retangulo</li>
+            <li>Mostrar a área total, quando clicar em um botão, em um alert e em um output</li>
+            <li>Não precisa rodar assim que a página for carregada</li>
+    </h2>
+    
+    <button onclick="mostrarAreaAlert()">Mostrar área: Alert</button>
+    <button onclick="mostrarAreaOutput()">Mostrar área: Output</button>
+    
+    <div id="output">Lado x Lado</div>
+    
+    <script>
+        
+        function mostrarAreaAlert(){
+            var largura = parseFloat(prompt("Digite a largura"));
+            var altura = parseFloat(prompt("Digite a altura"));
+            
+            try{
+              var area = calcularArea(largura, altura);
+            }catch(e){
+              area = e;
+            }
+
+            alert('A área de ' + largura + ' x ' + altura + ' = ' + area);
+        }
+
+        function mostrarAreaOutput(){
+            var largura = parseFloat(prompt("Digite a largura"));
+            var altura = parseFloat(prompt("Digite a altura"));
+
+            try{
+              var area = calcularArea(largura, altura);
+            } catch(e){
+              area = e;
+            }
+
+            document.querySelector('#output').innerHTML = 'A área de ' + largura + ' x ' + altura + ' = ' + area;
+        }
+
+        mostrarAreaAlert()
+
+        function calcularArea(l, a){
+          if ( l === undefined || a === undefined ){
+            throw new Error('Precisa inserir dois números');
+          }
+          if( isNaN(l) || isNaN(a) ){
+            throw new Error('Apenas números são aceitos');
+          }
+
+          return l * a;
+        }
+
+    </script>
+</body>
+</html>

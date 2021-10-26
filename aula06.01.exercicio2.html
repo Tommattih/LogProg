@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="PT-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lóg. de Prog. A:06.01/E.2</title>
+  </head>
+  <body>
+    <h1 style="color: white; background-color: black; font-size: 1.6rem">
+      Lógica de programação com Javascript
+    </h1>
+
+    <button>
+      <a href="/index.html" style="color: blue"> Página inicial</a>
+    </button>
+
+    <h2>
+      <strong style="color: tomato"> --PROBLEMA-- </strong>
+      <!-- <ol style="color: blue"> -->
+      <p style="color: blue">
+        Mostrar na tela a soma dos <strong>números pares </strong> contidos na
+        seguinte Array:
+      </p>
+      <p style="color: blue">[25, 30, 45, 28, 0, 12, 78, 64]</p>
+    </h2>
+
+    <div id="output">Resultado</div>
+
+    <script>
+      var numeros = new Array(25, 30, 45, 28, 0, 12, 78, 64)
+
+      var somaDosPares = somarPares(numeros)
+      document.querySelector('#output').innerHTML = somaDosPares
+
+      function somarPares(arr) {
+        var soma = 0
+        for (var i = 0; i < numeros.length; i++) {
+          if (!isNaN(numeros[i]) && numeros[i] % 2 === 0) {
+            soma += numeros[i]
+          }
+        }
+        return soma
+      }
+    </script>
+  </body>
+</html>

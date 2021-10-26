@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="PT-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lóg. de Prog. A:06.02</title>
+</head>
+<body>
+    <h1 style="color: white; background-color: black; font-size: 1.6rem;">
+        Lógica de programação com Javascript
+    </h1>
+    
+    <button>
+        <a href="/index.html" style="color:blue;"> Página inicial</a>
+    </button>
+
+    <h2>
+        <strong style="color: tomato;"> --PROBLEMA-- </strong>
+        <ol style="color: blue">
+            <li>Mostrar na tela dados de um produto específico</li>
+            <li>Precisa conter a quantidade em estoque e o preço</li>
+            <li>Estes dados precisam estar agrupados em um objeto</li>
+    </h2>
+        
+    <div id="output">Produtos</div>
+    
+    <script>
+      var produto1 = new Object()
+      produto1.nome = 'Suco'
+      produto1.preco = 2.5
+      produto1.estoque = 5
+      
+      var produto2 = new Object()
+      produto2.nome = 'Água mineral'
+      produto2.preco = 2
+      produto2.estoque = 12
+      produto2.comprar = function(qtd){
+        if(!qtd){
+          qtd = 1;
+        }
+        alert('Compra efetuada');
+        //this.estoque--;
+        this.estoque = this.estoque - qtd;
+        alert('Restam ' + this.estoque + ' em estoque');
+      }
+      
+      var msg = ''
+      msg += 'Nome: ' + produto1.nome + '<br>'
+      msg += 'Preço: ' + produto1.preco + '<br>'
+      msg += 'Estoque: ' + produto1.estoque + '<br><br>'
+
+      msg += 'Nome: ' + produto2.nome + '<br>'
+      msg += 'Preço: ' + produto2.preco + '<br>'
+      msg += 'Estoque: ' + produto2.estoque + '<br>'
+
+      document.querySelector('#output').innerHTML = msg
+
+    </script>
+</body>
+</html>

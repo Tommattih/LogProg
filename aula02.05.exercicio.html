@@ -1,79 +1,103 @@
 <!DOCTYPE html>
 <html lang="PT-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Lóg. de Prog. A:02.05.Ex.1</title>
-</head>
-<body>
-    <h1 style="color: white; background-color: black; font-size: 1.6rem;">
-        Lógica  de programação com Javascript
+  </head>
+  <body>
+    <h1 style="color: white; background-color: black; font-size: 1.6rem">
+      Lógica de programação com Javascript
     </h1>
-    
+
     <button>
-        <a href="/index.html" style="color:blue;"> Página inicial</a>
+      <a href="/index.html" style="color: blue"> Página inicial</a>
     </button>
 
     <h2>
-        <strong style="color: tomato;"> --PROBLEMA-- </strong>
-        <ol style="color: blue">
-            <li>Fazer o jogador1 digitar um número</li> <!-- Registra P1 -->
-            <li>Fazer o jogador2 digitar outro número</li> <!-- Registra P2 -->
-            <li>Se forem iguais, mostrar mensagem 'Empate!'</li> <!-- Condicional -->
-            <li>Sortear um número entre 0 e 1</li> <!-- Boolean -->
-            <li>Se o número sorteado for 0, ganha quem escolher o número <strong>menor</strong>.</li> <!-- Condicional -->
-            <li>Se o número sorteado for 1, ganha quem escolher o número <strong>maior</strong>.</li> <!-- Condicional -->
-        </ol>
+      <strong style="color: tomato"> --PROBLEMA-- </strong>
+      <ol style="color: blue">
+        <li>Fazer o jogador1 digitar um número</li>
+        <!-- Registra P1 -->
+        <li>Fazer o jogador2 digitar outro número</li>
+        <!-- Registra P2 -->
+        <li>Se forem iguais, mostrar mensagem 'Empate!'</li>
+        <!-- Condicional -->
+        <li>Sortear um número entre 0 e 1</li>
+        <!-- Boolean -->
+        <li>
+          Se o número sorteado for 0, ganha quem escolher o número
+          <strong>menor</strong>.
+        </li>
+        <!-- Condicional -->
+        <li>
+          Se o número sorteado for 1, ganha quem escolher o número
+          <strong>maior</strong>.
+        </li>
+        <!-- Condicional -->
+      </ol>
     </h2>
-    
-    
+
     <script>
-        var jogador1 = parseInt(prompt("Player 01, (0 ou 1) Digite um número :"));
-        var jogador2 = parseInt(prompt("Player 02, (0 ou 1) Digite um número: "));
+      var jogador1 = parseInt(prompt('Player 01, (0 ou 1) Digite um número :'))
+      var jogador2 = parseInt(prompt('Player 02, (0 ou 1) Digite um número: '))
 
-        if(jogador1 === jogador2){
-            alert("Oh! Empatou!");
-        }else{
-            var sorteio = parseInt(Math.random() * 2);
-            alert("Número sorteado foi: " + sorteio);
+      if (jogador1 === jogador2) {
+        alert('Oh! Empatou!')
+      } else {
+        var sorteio = parseInt(Math.random() * 2)
+        alert('Número sorteado foi: ' + sorteio)
 
-            //sorteio === 0 -> "Ganha quem escolher o número menor!";
-            if (sorteio === 0){
-                
-                if(jogador1 < jogador2){
-                    alert("Ganha quem escolher o número menor. Escolhendo: " + jogador1 + " O Player 01 ganhou!");
-                    //alert("O Player 02 ganhou!");
-                } else {
-                    alert("Ganha quem escolher o número menor. Escolhendo: " + jogador2 + " O Player 02 ganhou!");
-                    //alert("O Player 02 ganhou!");
-                }
+        //sorteio === 0 -> "Ganha quem escolher o número menor!";
+        if (sorteio === 0) {
+          if (jogador1 < jogador2) {
+            alert(
+              'Ganha quem escolher o número menor. Escolhendo: ' +
+                jogador1 +
+                ' O Player 01 ganhou!'
+            )
+            //alert("O Player 02 ganhou!");
+          } else {
+            alert(
+              'Ganha quem escolher o número menor. Escolhendo: ' +
+                jogador2 +
+                ' O Player 02 ganhou!'
+            )
+            //alert("O Player 02 ganhou!");
+          }
 
-            //sorteio === 1 -> "Ganha quem escolher o número maior!";
-            }else{
+          //sorteio === 1 -> "Ganha quem escolher o número maior!";
+        } else {
+          if (jogador1 > jogador2) {
+            alert(
+              'Ganha quem escolher o número maior. Escolhendo: ' +
+                jogador1 +
+                ' O Player 01 ganhou!'
+            )
+            //alert("O Player 01 ganhou!");
+          } else {
+            alert(
+              'Ganha quem escolher o número maior. Escolhendo: ' +
+                jogador2 +
+                ' O Player 02 ganhou!'
+            )
+            //alert("O Player 02 ganhou!");
+          }
+        }
+      }
 
-                if(jogador1 > jogador2){
-                    alert("Ganha quem escolher o número maior. Escolhendo: " + jogador1 + " O Player 01 ganhou!");
-                    //alert("O Player 01 ganhou!");
-
-                } else {
-                    alert("Ganha quem escolher o número maior. Escolhendo: " + jogador2 + " O Player 02 ganhou!");
-                    //alert("O Player 02 ganhou!");
-                }
-            }
-        };
-
-        //if(true){
-            //bloco verdade
-            //if(){    
-                //bloco verdade
-            //}else{
-                //bloco mentira
-            //}
-        //} else {
-            //bloco mentira
-        //};
-        //comparativos convertem em boolean 
+      //if(true){
+      //bloco verdade
+      //if(){
+      //bloco verdade
+      //}else{
+      //bloco mentira
+      //}
+      //} else {
+      //bloco mentira
+      //};
+      //comparativos convertem em boolean
     </script>
-</body>
+  </body>
 </html>

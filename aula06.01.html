@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="PT-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lóg. de Prog. A:06.01</title>
+  </head>
+  <body>
+    <h1 style="color: white; background-color: black; font-size: 1.6rem">
+      Lógica de programação com Javascript
+    </h1>
+
+    <button>
+      <a href="/index.html" style="color: blue"> Página inicial</a>
+    </button>
+
+    <h2>
+      <strong style="color: tomato"> --PROBLEMA-- </strong>
+      <!-- <ol style="color: blue"> -->
+      <p style="color: blue">
+        Mostrar na tela todos os produtos para compra em lista
+      </p>
+      <p style="color: blue">
+        Os nomes dos produtos devem estar agrupados em um array
+      </p>
+    </h2>
+
+    <div id="output">Produtos</div>
+    <script>
+      var produtos = new Array(
+        'arroz',
+        'feijão',
+        'ovos',
+        'tomate',
+        'pepino',
+        'cebola'
+      )
+      produtos.push('gelatina', 'creme de leite', 'frutas')
+
+      var msg = ''
+      for (var i = 0; i < produtos.length; i++) {
+        msg += 'Produto ' + (i + 1) + ': ' + produtos[i] + '<br>'
+      }
+
+      //document.querySelector('#output').innerHTML = produtos //ou:
+      var output = document.querySelector('#output')
+      output.innerHTML = msg
+    </script>
+  </body>
+</html>
