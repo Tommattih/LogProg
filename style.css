@@ -1,0 +1,66 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; 
+    list-style: none;   
+}
+h1 {
+    color: ivory; 
+    background-color: black; 
+    font-size: 1.5rem;
+}
+.question {
+    background-color:ivory;
+    font-size: 1.1rem;
+}
+h3 {
+    background-color:lightgray;
+}
+strong {
+    color: tomato;
+    font-size: 1.4rem;
+    margin-bottom: 5px;
+}
+p, a {
+    color: black;
+}
+nav ol {
+    list-style: none;
+}
+h1, h2, h3, .question {
+    text-align: center;
+}
+    
+h1, h3, nav ol, .question {
+    border: double 2px gray;
+    border-radius: 5px;
+    padding: 0.5rem 1rem;
+    margin: 5px 10px 2px;
+}
+a {
+    text-decoration: none;
+    font-weight: bold;
+}
+ol li a:hover {
+    text-decoration: underline;
+    color: red;
+    background-color: ivory;
+    border-radius: 5px;
+    padding: 0 5px;
+    font-weight: lighter;
+    border: dashed 1px red;
+}
+.buttons { 
+    display: block;
+    text-align: center;
+}
+button {
+    padding: 5px 20px;
+    margin: 5px;
+    font-weight: bold;
+}
+button:hover, button:hover > a {
+    background-color: black;
+    color: ivory;
+    transition: .4s;
+}

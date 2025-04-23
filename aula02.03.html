@@ -4,30 +4,30 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css" />
     <title>Lóg. de Prog. A:02.03</title>
 </head>
 <body>
 
-    <h1 style="color: white; background-color: black; font-size: 1.6rem;">
-        Lógica de programação com Javascript
-    </h1>
-    
-    <button>
-        <a href="./index.html" style="color:blue;"> Página inicial</a>
-    </button>
+    <h1>Lógica de programação com Javascript</h1>
 
-    <h2>
-        <strong style="color: tomato;"> --PROBLEMA-- </strong>
-        
-        <ol style="color: blue">    
-            <li>Pedir para o usuário digitar um número 
-            <li>Pedir para o usuário digitar outro número 
+    <div class="question">
+        <h2><strong> --PROBLEMA-- </strong></h2>
+        <ol>    
+            <li>Pedir para o usuário digitar um número</li>
+            <li>Pedir para o usuário digitar outro número</li>
             <li>Mostrar a média</li>
         </ol>    
-    </h2>
-        
+    </div>
     
+    <div class="buttons">
+        <button onclick="answer()">Run</button>
+        
+        <button><a href="./index.html"> Página inicial</a></button>
+    </div>
+                
     <script>
+        function answer() {
         var n1 = prompt("Digite um número:");
         n1 = parseFloat(n1);
         
@@ -37,7 +37,7 @@
         var media = (n1 + n2) / 2;
 
         alert("A média é: " + media);
-
+        }
         //alert("A média é: " + ((n1 + n2) / 2)); Resposta mais curta
     </script>
 </body>

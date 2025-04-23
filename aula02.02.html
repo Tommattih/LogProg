@@ -4,25 +4,25 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css" />
     <title>Lóg. de Prog.A:02.02</title>
 </head>
 <body>
-    <h1 style="color: white; background-color: black; font-size: 1.6rem;">
-        Lógica de programação com Javascript
-    </h1>
-    
-    <button>
-        <a href="./index.html" style="color:blue;"> Página inicial</a>
-    </button>
+    <h1>Lógica de programação com Javascript</h1>
 
-    <h2>
-        <strong style="color: tomato;"> --PROBLEMA-- </strong>
-        <p style="color: blue">Pedir para o usuário digitar dois números e mostrar a soma</p>
-    </h2>
+    <div class="question">
+        <h2><strong> --PROBLEMA-- </strong></h2>
+        <p>Pedir para o usuário digitar dois números e mostrar a soma</p>
+    </div>
+
+    <div class="buttons">
+        <button onclick="answer()">Run</button>
+        
+        <button><a href="./index.html"> Página inicial</a></button>
+    </div>
     
     <script>
-        alert("Okaeri!");
-
+        function answer() {
         //Pedir para o usuário digitar um número
         var numero1 = prompt("Digite um número");
         numero1 = parseFloat(numero1);
@@ -35,6 +35,7 @@
         //**alert(numero1 + numero2); retorna a concatenação dos objetos [junta tudo se misturar texto e némero] parseInt ou parseFloat
         //**alert( typeof numero1); retorna o tipo do objeto
         alert(numero1 + numero2);
+    }
     </script>
 
     

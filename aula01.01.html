@@ -4,27 +4,28 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
     <title>Lóg. de Prog. A:01.01</title>
   </head>
   <body>
-    <h1 style="color: white; background-color: black; font-size: 1.6rem">
-      Lógica de programação com Javascript
-    </h1>
+    <h1>Lógica de programação com Javascript</h1>
 
-    <button>
-      <a href="./index.html" style="color: blue"> Página inicial</a>
-    </button>
-
-    <h2>
-      <strong style="color: tomato"> --PROBLEMA-- </strong>
-      <p style="color: blue">
-        Primeiro o clássico "Hello world!" e em português também
-      </p>
-    </h2>
+    <div class="question">
+      <h2><strong> --PROBLEMA-- </strong></h2>
+      <p>Primeiro o clássico: Exibir um "Hello world!" na tela.</p>
+    </div>
+    
+    <div class="buttons">
+      <button onclick="answer()">Run</button>
+      
+      <button><a href="./index.html"> Página inicial</a></button>
+    </div>
 
     <script>
-      alert('Hello world!')
-      alert('Olá mundo!')
+      function answer() {
+        alert('Hello world!');
+        alert('Olá mundo!');
+      }
     </script>
   </body>
 </html>

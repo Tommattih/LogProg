@@ -4,21 +4,16 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css" />
     <title>Lóg. de Prog.02.03.Ex</title>
 </head>
 <body>
-    <h1 style="color: white; background-color: black; font-size: 1.6rem;">
-        Lógica de programação com Javascript
-    </h1>
+    <h1>Lógica de programação com Javascript</h1>
     
-    <button>
-        <a href="./index.html" style="color:blue;"> Página inicial</a>
-    </button>
-
-    <h2>
-        <strong style="color: tomato;"> --PROBLEMA-- </strong>
+    <div class="question">
+        <h2><strong> --PROBLEMA-- </strong></h2>
         
-        <ol style="color: blue">
+        <ol>
             <li>Pedir para o usuário digitar um número</li>
             <li>Converter em número inteiro</li>
             <li>Pedir para o usuário digitar outro número</li>
@@ -30,27 +25,33 @@
                 <p>"O número (n1) elevado a (n2) é: (resultado)"</p>
             </li>
         </ol>    
-    </h2>
+    </div>
     
+    <div class="buttons">
+        <button onclick="answer()">Run</button>
+        
+        <button><a href="./index.html"> Página inicial</a></button>
+    </div>
     
     <script>
-        var n1 = prompt("digite um número");
-        n1 = parseInt(n1);
-
-        var n2 = prompt("digite outro número");
-        n2 = parseInt(n2);
+        function answer() { //1
+            var n1 = prompt("digite um número");
+            n1 = parseInt(n1);
     
-        //modo step by step
-        // var modulo = n1 % n2;
-        // var elevado = n1 ** n2;
-
-        // alert("O resto da divisão de " + n1 + " por " + n2 + " é: " + modulo);
-        // alert("O número " + n1 + " elevado a " + n2 + " é: " + elevado);
-
-        //modo direto
-        alert("O o resto da divisão do número " + n1 + " por " + n2 + " é: " + (n1 % n2));
-        alert("O número " + n1 + " elevado a " + n2 + " é: " + (n1 ** n2));
-
+            var n2 = prompt("digite outro número");
+            n2 = parseInt(n2);
+        
+            //modo step by step
+            // var modulo = n1 % n2;
+            // var elevado = n1 ** n2;
+    
+            // alert("O resto da divisão de " + n1 + " por " + n2 + " é: " + modulo);
+            // alert("O número " + n1 + " elevado a " + n2 + " é: " + elevado);
+    
+            //modo direto
+            alert("O o resto da divisão do número " + n1 + " por " + n2 + " é: " + (n1 % n2));
+            alert("O número " + n1 + " elevado a " + n2 + " é: " + (n1 ** n2));
+        }
 
     </script>
 </body>
