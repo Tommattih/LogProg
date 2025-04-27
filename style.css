@@ -13,13 +13,21 @@ h1 {
     background-color:ivory;
     font-size: 1.1rem;
 }
-h3 {
-    background-color:lightgray;
-}
 strong {
     color: tomato;
     font-size: 1.4rem;
     margin-bottom: 5px;
+}
+.solution {
+    display: none;
+    background-color: lightsteelblue;
+}
+h3 {
+    background-color:lightgray;
+    padding: .5rem .5rem;
+    margin-bottom: 5px;
+    border: double 2px lightslategrey;
+    border-radius: 3px;
 }
 p, a {
     color: black;
@@ -31,7 +39,7 @@ h1, h2, h3, .question {
     text-align: center;
 }
     
-h1, h3, nav ol, .question {
+h1, .question, .solution {
     border: double 2px gray;
     border-radius: 5px;
     padding: 0.5rem 1rem;
