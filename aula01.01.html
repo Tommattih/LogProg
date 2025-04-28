@@ -16,15 +16,26 @@
     </div>
     
     <div class="buttons">
-      <button onclick="answer()">Run</button>
-      
+      <button onclick="show(answer())">Run</button>
       <button><a href="./index.html">Página inicial</a></button>
     </div>
 
-    <div class="solution">Resposta</div>
+    <div class="solution"></div>
+
+    <script src="./script.js"></script>
 
     <script>
-      var solution = "Hello world!";
+      function show() {
+          var hello = "Hello World!";
+          solutionBox.innerHTML = hello;
+          if (solutionBox.style.display === 'block') {
+            alert(hello);
+          }
+        }
+    </script>
+
+<!-- 
+    <script>
       function answer() {
         var button = document.querySelector('.buttons > button');
         var solutionBox = document.querySelector('.solution');
@@ -36,8 +47,6 @@
           button.innerHTML = 'Stop';
           solutionBox.style.display = 'block';
           solutionBox.style.textAlign = 'center';
-          solutionBox.innerHTML = solution;
-          alert(solution);
         };
       }
 //answer() alterna a exibição da div .solution e a descrição do botão de ação
@@ -45,6 +54,6 @@
 
 // var solutionPT = "Olá mundo!";
 // alert(solutionPT);
-    </script>
+    </script> -->
   </body>
 </html>

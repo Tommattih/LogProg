@@ -15,7 +15,10 @@
     <div class="question">
       <h2><strong> --PROBLEMA-- </strong></h2>
       <p>Saudar o usuário e mostrar uma lista ordenada das estruturas aprendidas</p>
-      <button onclick="showAnswer()">Run</button>
+      
+      <div class="buttons">
+        <button onclick="answer()">Run</button>
+        <button onclick="show()">Hello!</button></div>
     </div>
     
     <div class="solution">
@@ -153,14 +156,12 @@
       </nav>
     </div>
     
+    <script src="./script.js"></script>
     <script>
-      function showAnswer() {
-        alert(`Bem-vindo(a)`);
-        var answer = document.querySelector('.solution');
-        answer.style.display = 'block';
+      function show() {
+        alert("Bem-vindo(a)");
       }
-      // var answer = document.getElementsByClassName('solution');
-      // answer = answer[0];
+      show();
     </script>
   </body>
 </html>
