@@ -16,16 +16,31 @@
     </div>
     
     <div class="buttons">
-        <button onclick="answer()">Run</button>
+        <button onclick="show()">Run</button>
         
         <button><a href="./index.html"> Página inicial</a>
         </button>
     </div>
 
+    <div class="solution"></div>
+
+    <script src="./script.js"></script>
     <script>
-        function answer() {
-            var name = prompt("Qual é seu seu nome?");
-        alert("Bem-vindo, " + name);}
+        var name = ".";
+        var message = "Bem-vindo, ";
+        function show() {
+            if (name === ".") {
+                name = prompt("Qual é seu seu nome?");
+                message = message + name.toUpperCase();
+                if (name !== ".") {
+                    alert(message);
+                    answer();
+                    solutionBox.innerHTML = message;
+                }
+            } else {
+                answer();
+            }
+        }
 
         // var endereco = 102;
         
