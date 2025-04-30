@@ -38,7 +38,7 @@
         }        
         function isName() {
             name = String(prompt("Qual é seu seu nome?"));
-            message = message + name.toUpperCase();
+            message = message + capitalizeFirstLetter(name) + "!";
             alert(message);
 
             answer();

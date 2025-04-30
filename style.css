@@ -73,3 +73,16 @@ button:hover, button:hover > a {
     color: ivory;
     transition: .4s;
 }
+
+body {
+    background-color: darkgoldenrod;
+    animation: bgChange 20s infinite;
+}
+@keyframes bgChange {
+    0% { background-color: darkgoldenrod; }
+    25% { background-color: steelblue;}
+    50% { background-color: goldenrod; }
+    90% { background-color: steelblue; }
+    100% { background-color: darkgoldenrod; }
+
+}
