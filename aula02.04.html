@@ -4,38 +4,41 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>Lóg. de Prog. A:02.04</title>
 </head>
 <body>
-    <h1 style="color: white; background-color: black; font-size: 1.6rem;">
+    <h1>
         Lógica  de programação com Javascript
     </h1>
+    <div class="buttons">
+        <button onclick="show(true)">Run</button>
+        <button><a href="./index.html">Página inicial</a></button>
+    </div>
+            
+    <div class="question">
+        <h2><strong> --PROBLEMA-- </strong></h2>
+        <p>Pedir para o usuário digitar dois números e mostrar um boolean indicando se a média for maior que 5</p>
+    </div>
     
-    <button>
-        <a href="./index.html" style="color:blue;"> Página inicial</a>
-    </button>
+    <div class="solution"></div>
 
-    <h2>
-        <strong style="color: tomato;"> --PROBLEMA-- </strong>
-
-        <p style="color: blue">Pedir para o usuário digitar dois números e mostrar um boolean indicando se a média for maior que 5</p>
-    </h2>
-    
-    
+    <script src="./script.js"></script>
     <script>
-        var num1 = prompt("Digite um número");
-        num1 = parseFloat(num1);
-        //num1 = parseFloat(prompt("digite um número")); 
-        //**é a mesma dunção, porém em uma única linha
-
-
-        var num2 = prompt("Digite mais um número");
-        num2 = parseFloat(num2);
-
+        var num1 = null;
+        var num2 = null;
         var media = (num1 + num2) / 2;
+        var message = "A média é maior que 5?" ;
         
-        alert(media > 5);
-        //comparativos convertem em boolean 
+        function show(visible) {
+            num1 = parseFloat(prompt("Digite um número"));
+            //**é a mesma função, porém em uma única linha
+            num2 = parseFloat(prompt("Digite mais um número"));       
+            //comparativos convertem em boolean 
+            alert(media > 5);
+            solutionBox.innerHTML = media > 5 + message;
+            answer();       
+        }
     </script>
 </body>
 </html>

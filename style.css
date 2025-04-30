@@ -7,7 +7,8 @@
 }
 h1 {
     color: ivory; 
-    background-color: black; 
+    background-color: black;
+    opacity: .85; 
     font-size: 1.5rem;
 }
 .question {
@@ -16,6 +17,7 @@ h1 {
 }
 strong {
     color: tomato;
+    text-shadow: 0 1px 1px darkred ;
     font-size: 1.4rem;
     margin-bottom: 5px;
 }
@@ -45,6 +47,18 @@ h1, .question, .solution {
     border-radius: 5px;
     padding: 0.5rem 1rem;
     margin: 5px 10px 2px;
+    box-shadow: 2px 1px 10px whitesmoke;
+    animation: floating 10s infinite;
+}
+
+@keyframes floating {
+    10% { transform: scale(1.01)}
+    25% { transform: translatey(1.015); }
+    50% { box-shadow: 1px 2px 8px whitesmoke; }
+    75% { transform: translateX(1.015); }
+    90% { transform: scale(1); }
+    100% { box-shadow: -2px -1px 10px lightslategrey ; }
+
 }
 a {
     text-decoration: none;
@@ -71,7 +85,9 @@ button {
 button:hover, button:hover > a {
     background-color: black;
     color: ivory;
+    opacity: .75;
     transition: .4s;
+    cursor: pointer;
 }
 
 body {
@@ -84,5 +100,4 @@ body {
     50% { background-color: goldenrod; }
     90% { background-color: steelblue; }
     100% { background-color: darkgoldenrod; }
-
 }
