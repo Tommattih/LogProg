@@ -12,3 +12,11 @@ function answer() {
         solutionBox.style.display = 'block';
     };
 }
+
+function isNumber() {
+    if (num1 == null) {
+        return false
+    } else {
+        answer();
+    }
+}

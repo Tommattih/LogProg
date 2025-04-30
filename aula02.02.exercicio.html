@@ -16,31 +16,48 @@
             <li>Converter em um número inteiro</li>
             <li>Pedir para o usuário digitar outro número</li>
             <li>Converter em número inteiro</li>
-            <li>Mostrar a subtração concatenando com o texto "a subtração é:..."</li>
             <li>Mostrar a multiplicação concatenando com o texto "a multiplicação é: ..."</li>
             <li>Mostrar a divisão concatenando com o texto "a divisão é: ..."</li>
             <li>Mostrar a soma concatenando com o texto "a soma é: ..."</li>
+            <li>Mostrar a subtração concatenando com o texto "a subtração é:..."</li>
         </ol>
     </div>
     
     <div class="buttons">
-        <button onclick="answer()">Run</button>
+        <button onclick="run()">Run</button>
         
         <button><a href="./index.html"> Página inicial</a></button>
     </div>
+
+    <div class="solution"></div>
     
+    <script src="./script.js"></script>
     <script>
-        function answer() { //1
-        var num1 = prompt("Digite um número"); //1
-        num1 = parseInt(num1); //2
+        var num2 = null;
+        var num1 = null; 
+        function run() {
+            if (num1 == null && num2 == null) {
+                num1 = parseInt(prompt("Digite um número")); 
+                num2 = parseInt(prompt("digite outro número")); 
+                isNum();
+            } else {
+                answer();
+            }
+        }
 
-        var num2 = prompt("digite outro número"); //3
-        num2 = parseInt(num2); //4
+        function isNum() {                        
+            var multiplication = "A multiplicação é: " + (num1 * num2);
+            var division = "A divisão é: " + (num1 / num2);
+            var addition = "A soma é: " + (num1 + num2);
+            var subtract = "A subtração é: " + (num1 - num2);
 
-        alert("A subtração é: " + (num1 - num2)); //5
-        alert("A multiplicação é: " + (num1 * num2)); //6
-        alert("A divisão é: " + (num1 / num2)); //7
-        alert("A soma é: " + (num1 + num2)); //8
+            alert(multiplication); 
+            alert(division); 
+            alert(addition); 
+            alert(subtract); 
+            
+            answer();
+            solutionBox.innerHTML = "As entradas foram: " + num1 + " e " + num2 + "<br>" + multiplication + "<br>" +  division  + "<br>" + addition + "<br>" + subtract;
         }
     </script>
 </body>

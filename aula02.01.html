@@ -23,33 +23,31 @@
     </div>
 
     <div class="solution"></div>
-
+    
     <script src="./script.js"></script>
     <script>
         var name = ".";
         var message = "Bem-vindo, ";
+        
         function show() {
-            if (name === ".") {
-                name = prompt("Qual é seu seu nome?");
-                message = message + name.toUpperCase();
-                if (name !== ".") {
-                    alert(message);
-                    answer();
-                    solutionBox.innerHTML = message;
-                }
+            if (name == ".") {
+                isName();
             } else {
                 answer();
             }
-        }
+        }        
+        function isName() {
+            name = String(prompt("Qual é seu seu nome?"));
+            message = message + name.toUpperCase();
+            alert(message);
 
+            answer();
+            solutionBox.innerHTML = message;
+        }        
         // var endereco = 102;
-        
         // var verdade = true;
-
         // var real = 1.5;
-
         // var lista = [a, b, c];
-
         // var objetoCasa = ["chão", "paredes", "teto"];
     </script>
     

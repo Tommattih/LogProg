@@ -21,24 +21,31 @@
     </div>
     
     <div class="buttons">
-        <button onclick="answer()">Run</button>
-        
+        <button onclick="show()">Run</button>
         <button><a href="./index.html"> Página inicial</a></button>
     </div>
+    
+    <div class="solution"></div>
                 
+    <script src="./script.js"></script>
     <script>
-        function answer() {
-        var n1 = prompt("Digite um número:");
-        n1 = parseFloat(n1);
+        var num1 = null;
+        var num2 = null;
         
-        var n2 = prompt("Digite mais um número:");
-        n2 = parseFloat(n2);
-
-        var media = (n1 + n2) / 2;
-
-        alert("A média é: " + media);
-        }
-        //alert("A média é: " + ((n1 + n2) / 2)); Resposta mais curta
+        function show() {
+            if (isNumber() == false) {
+                num1 = parseFloat(prompt("Digite um número:"));
+                num2 = parseFloat(prompt("Digite mais um número:"));
+                
+                var media = (num1 + num2) / 2;
+                var message = "A média entre " + num1 + " e " + num2 + " é: " + media;
+                
+                //alert("A média é: " + ((num1 + num2) / 2)); Resposta mais curta
+                alert(message);
+                solutionBox.innerHTML = message;
+                answer();
+            }
+        }                                               
     </script>
 </body>
 </html>

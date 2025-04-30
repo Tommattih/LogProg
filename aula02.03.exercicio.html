@@ -28,19 +28,33 @@
     </div>
     
     <div class="buttons">
-        <button onclick="answer()">Run</button>
-        
+        <button onclick="show()">Run</button>
         <button><a href="./index.html"> Página inicial</a></button>
     </div>
     
-    <script>
-        function answer() { //1
-            var n1 = prompt("digite um número");
-            n1 = parseInt(n1);
+    <div class="solution"></div>
     
-            var n2 = prompt("digite outro número");
-            n2 = parseInt(n2);
+    <script src="./script.js"></script>
+    <script>
+
+        var num1 = null;
+        var num2 = null;
+
+        function show() {
+            if (isNumber() == false) {
+                num1 = parseInt(prompt("Digite um número"));
+                num2 = parseInt(prompt("Digite outro número"));
+
+                var division = "O o resto da divisão do número " + num1 + " por " + num2 + " é: " + (num1 % num2);
+                var exponentiation = "O número " + num1 + " elevado a " + num2 + " é: " + (num1 ** num2);
         
+                alert(division);
+                alert(exponentiation);
+
+                solutionBox.innerHTML = division + "<br>" + exponentiation;
+                answer();
+            } 
+        }        
             //modo step by step
             // var modulo = n1 % n2;
             // var elevado = n1 ** n2;
@@ -49,9 +63,6 @@
             // alert("O número " + n1 + " elevado a " + n2 + " é: " + elevado);
     
             //modo direto
-            alert("O o resto da divisão do número " + n1 + " por " + n2 + " é: " + (n1 % n2));
-            alert("O número " + n1 + " elevado a " + n2 + " é: " + (n1 ** n2));
-        }
 
     </script>
 </body>
