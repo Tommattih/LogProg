@@ -17,14 +17,6 @@ function answer() {
     };
 }
 
-function isNumber() {
-    if (num1 == null) {
-        return false
-    } else {
-        answer();
-    }
-}
-
 function capitalizeFirstLetter(string) {
     if (typeof string !== 'string' || string.length === 0) {
         return string;

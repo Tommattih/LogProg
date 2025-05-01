@@ -19,3 +19,4 @@ https://www.youtube.com/playlist?list=PL1dUY2RYa2RidB3B134ywckDyf-FOwbv7
 
 - Reutilizando funções com JS externo
 - Reordenando exercícios e aplicando `animation` no  `background-color`
+- Limpando scripts e melhorando lógicas

@@ -41,7 +41,7 @@
         var num2 = null;
 
         function show() {
-            if (isNumber() == false) {
+            if (visible !== true) {
                 num1 = parseInt(prompt("Digite um número"));
                 num2 = parseInt(prompt("Digite outro número"));
 
@@ -52,8 +52,8 @@
                 alert(exponentiation);
 
                 solutionBox.innerHTML = division + "<br>" + exponentiation;
-                answer();
             } 
+            answer();
         }        
             //modo step by step
             // var modulo = n1 % n2;

@@ -24,8 +24,7 @@
     </div>
     
     <div class="buttons">
-        <button onclick="run()">Run</button>
-        
+        <button onclick="run()">Run</button>        
         <button><a href="./index.html"> Página inicial</a></button>
     </div>
 
@@ -36,29 +35,35 @@
         var num2 = null;
         var num1 = null; 
         function run() {
-            if (num1 == null && num2 == null) {
+            if (visible !== true) {
                 num1 = parseInt(prompt("Digite um número")); 
-                num2 = parseInt(prompt("digite outro número")); 
-                isNum();
-            } else {
-                answer();
+                num2 = parseInt(prompt("Digite outro número")); 
+                
+                var inputs = "As entradas foram: " + num1 + " e " + num2;
+                
+                if (isNaN(num1) || isNaN(num2)) {                        
+                    alert("Você não digitou os números válidos necessários");
+                    solutionBox.innerHTML = "Tente inserir números válidos da próxima vez";
+                } else {
+                    var multiplication = "A multiplicação é: " + (num1 * num2);
+                    var division = "A divisão é: " + (num1 / num2);
+                    var addition = "A soma é: " + (num1 + num2);
+                    var subtract = "A subtração é: " + (num1 - num2);
+                    
+                    if (num2 !== 0) {
+                        alert(multiplication); 
+                        alert(division); 
+                        alert(addition); 
+                        alert(subtract); 
+                        solutionBox.innerHTML = inputs + "<br>" + multiplication + "<br>" +  division  + "<br>" + addition + "<br>" + subtract;
+                    } else {
+                        alert("Você não pode dividir por zero");
+                        solutionBox.innerHTML = inputs + "<br>" + multiplication + "<br>" + "Você não pode dividir por zero" + "<br>" + addition + "<br>" + subtract;
+                    }
+                }
             }
-        }
-
-        function isNum() {                        
-            var multiplication = "A multiplicação é: " + (num1 * num2);
-            var division = "A divisão é: " + (num1 / num2);
-            var addition = "A soma é: " + (num1 + num2);
-            var subtract = "A subtração é: " + (num1 - num2);
-
-            alert(multiplication); 
-            alert(division); 
-            alert(addition); 
-            alert(subtract); 
-            
             answer();
-            solutionBox.innerHTML = "As entradas foram: " + num1 + " e " + num2 + "<br>" + multiplication + "<br>" +  division  + "<br>" + addition + "<br>" + subtract;
-        }
+        }                
     </script>
 </body>
 </html>

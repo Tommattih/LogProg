@@ -29,18 +29,24 @@
         var num2 = null;
 
         function show() {
-            if (isNumber() == false) {
+            if (visible !== true) {
                 //Pedir para o usuário digitar um número
                 num1 = parseFloat(prompt("Digite um número"));
                 //Pedir para o usuário digitar outro número
                 num2 = parseFloat(prompt("Digite mais um número"));
-            //**alert(numero 1 + numero 2); retorna a concatenação dos objetos [junta tudo se misturar texto e número] parseInt ou parseFloat, usar () para separar a operação
-            alert("A soma é: " + (num1 + num2));
-            //Mostrar a soma
-            solutionBox.innerHTML = "A soma de " + num1 + " + " + num2 + " é: " + (num1 + num2);
+                
+                if (isNaN(num1) || isNaN(num2)) {
+                    alert("Opa! Faltou algo!");
+                    solutionBox.innerHTML = "Digite números válidos da próxima vez!";
+                } else {
+                    //**alert(numero 1 + numero 2); retorna a concatenação dos objetos [junta tudo se misturar texto e número] parseInt ou parseFloat, usar () para separar a operação
+                    alert("A soma é: " + (num1 + num2));
+                    //Mostrar a soma na tela
+                    solutionBox.innerHTML = "A soma de " + num1 + " + " + num2 + " é: " + (num1 + num2);
+                }
+            }
             answer();
-        }
-    }        
+        }        
         //**alert( typeof numero1); retorna o tipo do objeto
     </script>
 

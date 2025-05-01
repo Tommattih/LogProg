@@ -33,7 +33,7 @@
         var num2 = null;
         
         function show() {
-            if (isNumber() == false) {
+            if (visible !== true) {
                 num1 = parseFloat(prompt("Digite um número:"));
                 num2 = parseFloat(prompt("Digite mais um número:"));
                 
@@ -43,8 +43,8 @@
                 //alert("A média é: " + ((num1 + num2) / 2)); Resposta mais curta
                 alert(message);
                 solutionBox.innerHTML = message;
-                answer();
             }
+            answer();
         }                                               
     </script>
 </body>

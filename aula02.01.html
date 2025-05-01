@@ -26,21 +26,17 @@
     
     <script src="./script.js"></script>
     <script>
-        var name = ".";
-        var message = "Bem-vindo, ";
-        
+        visible = false;
         function show() {
-            if (name == ".") {
-                isName();
-            } else {
-                answer();
-            }
-        }        
-        function isName() {
-            name = String(prompt("Qual é seu seu nome?"));
-            message = message + capitalizeFirstLetter(name) + "!";
-            alert(message);
-
+            var name = "";
+            if (!visible) {
+                name = String(prompt("Qual é seu seu nome?"));
+                if (name.length <= 1 == true) {
+                    name = "visitante misterioso(a)!";
+                }
+                var message = "Bem-vindo(a), " + capitalizeFirstLetter(name) + "!";
+                alert(message);
+            }    
             answer();
             solutionBox.innerHTML = message;
         }        

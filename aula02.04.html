@@ -27,16 +27,21 @@
     <script>
         var num1 = null;
         var num2 = null;
-        var media = (num1 + num2) / 2;
-        var message = "A média é maior que 5?" ;
         
-        function show(visible) {
+        function show() {
+            if (visible !== true) {
+                
             num1 = parseFloat(prompt("Digite um número"));
-            //**é a mesma função, porém em uma única linha
-            num2 = parseFloat(prompt("Digite mais um número"));       
-            //comparativos convertem em boolean 
-            alert(media > 5);
-            solutionBox.innerHTML = media > 5 + message;
+            //**é a mesma função do exercicio original, porém em uma única linha
+            num2 = parseFloat(prompt("Digite mais um número"));    
+
+            var media = (num1 + num2) / 2;
+            var message = "A média é maior que 5? Resposta: " + (media >= 5);
+            //comparativos convertem o retoro em um boolean 
+
+            solutionBox.innerHTML = message;
+            alert(message);
+            }
             answer();       
         }
     </script>

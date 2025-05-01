@@ -48,18 +48,17 @@ h1, .question, .solution {
     padding: 0.5rem 1rem;
     margin: 5px 10px 2px;
     box-shadow: 2px 1px 10px whitesmoke;
-    animation: floating 10s infinite;
+    animation: floating 5s infinite;
 }
 
 @keyframes floating {
-    10% { transform: scale(1.01)}
-    25% { transform: translatey(1.015); }
-    50% { box-shadow: 1px 2px 8px whitesmoke; }
-    75% { transform: translateX(1.015); }
-    90% { transform: scale(1); }
-    100% { box-shadow: -2px -1px 10px lightslategrey ; }
+    25% { transform: translateX(-2px);
+        box-shadow: 2px -2px 4px whitesmoke;}
+    50% { box-shadow: 0 0 12px lightslategrey; }
+    75% { transform: translateX(1px); 
+        box-shadow: -2px 2px 8px whitesmoke; }
+    }
 
-}
 a {
     text-decoration: none;
     font-weight: bold;
