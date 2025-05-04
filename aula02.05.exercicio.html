@@ -4,20 +4,15 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
     <title>Lóg. de Prog. A:02.05.Ex.1</title>
   </head>
   <body>
-    <h1 style="color: white; background-color: black; font-size: 1.6rem">
-      Lógica de programação com Javascript
-    </h1>
-
-    <button>
-      <a href="./index.html" style="color: blue"> Página inicial</a>
-    </button>
-
-    <h2>
-      <strong style="color: tomato"> --PROBLEMA-- </strong>
-      <ol style="color: blue">
+    <h1>Lógica de programação com Javascript</h1>
+    
+    <div class="question">
+      <h2><strong> --PROBLEMA-- </strong></h2>
+      <ol>
         <li>Fazer o jogador1 digitar um número</li>
         <!-- Registra P1 -->
         <li>Fazer o jogador2 digitar outro número</li>
@@ -28,64 +23,98 @@
         <!-- Boolean -->
         <li>
           Se o número sorteado for 0, ganha quem escolher o número
-          <strong>menor</strong>.
+          <em>menor</em>.
         </li>
         <!-- Condicional -->
         <li>
           Se o número sorteado for 1, ganha quem escolher o número
-          <strong>maior</strong>.
+          <em>maior</em>.
         </li>
         <!-- Condicional -->
       </ol>
-    </h2>
+    </div>
+    
+    <div class="buttons">
+      <button onclick="show()">Run</button>
+      <button>
+        <a href="./index.html"> Página inicial</a>
+      </button>
+    </div>
 
+    <div class="solution"></div>
+    
+    <script src="./script.js"></script>
     <script>
-      var jogador1 = parseInt(prompt('Player 01, (0 ou 1) Digite um número :'))
-      var jogador2 = parseInt(prompt('Player 02, (0 ou 1) Digite um número: '))
-
-      if (jogador1 === jogador2) {
-        alert('Oh! Empatou!')
-      } else {
-        var sorteio = parseInt(Math.random() * 2)
-        alert('Número sorteado foi: ' + sorteio)
-
-        //sorteio === 0 -> "Ganha quem escolher o número menor!";
-        if (sorteio === 0) {
-          if (jogador1 < jogador2) {
-            alert(
-              'Ganha quem escolher o número menor. Escolhendo: ' +
-                jogador1 +
-                ' O Player 01 ganhou!'
-            )
-            //alert("O Player 02 ganhou!");
+      visible = false;
+      function show() {
+      var message = "";
+      var higherWin = "Ganha quem escolher o número maior. <br> Escolhendo: ";
+      var lowerWin = "Ganha quem escolher o número menor. <br>Escolhendo: ";
+      var empate = "Oh! Empatou!";
+      var p1Win = " O Player 01 ganhou!";
+      var p2Win = " O Player 02 ganhou!";
+      
+        if (!visible) {
+          var jogador1 = parseInt(prompt('Player 01, Digite um número (0 ou 1):'));
+          var jogador2 = parseInt(prompt('Player 02, Digite um número(0 ou 1):'));
+          
+          //caso não for um número ou seja NaN
+          if (isNaN(jogador1) || isNaN(jogador2) || jogador1 > 1 || jogador2 > 1) {
+            emptyInput();
           } else {
-            alert(
-              'Ganha quem escolher o número menor. Escolhendo: ' +
-                jogador2 +
-                ' O Player 02 ganhou!'
-            )
-            //alert("O Player 02 ganhou!");
-          }
+            //caso as escolhas sejam iguais  
+            if (jogador1 === jogador2) {
+              message = empate;
+            }
+  
+            if (jogador1 !== jogador2) {
+              var sorteio = parseInt(Math.random() * 2);
+              var sortMessage = "Número sorteado foi: " + sorteio;
+              alert(sortMessage);
+              // console.log(message + " se as entradas forem diferentes, entra no sorteio. Passou *1")
+              
+              //sorteio === 0 -> "Ganha quem escolher o número menor!";
+              if (sorteio === 0) {
+              // console.log("Número sorteado: Zero, quem vence? passou *2");
+  
+                function zeroWins() {
+                  if (jogador1 < jogador2) {
+                    message = lowerWin + jogador1 + p1Win;
+                    alert(p1Win);
+                  } else {
+                    message = lowerWin + jogador2 + p2Win;
+                    alert(p2Win);
+                  } 
+                }
+                zeroWins();
+              }
+  
+              //sorteio === 1 -> "Ganha quem escolher o número maior!";
+              if (sorteio === 1) {
+              // console.log("Número sorteado: 1, quem vence? passou *3");
+  
+                function oneWins() {
+                  if (jogador1 > jogador2) {
+                    message = higherWin + jogador1 + p1Win;
+                    alert(p1Win);
 
-          //sorteio === 1 -> "Ganha quem escolher o número maior!";
-        } else {
-          if (jogador1 > jogador2) {
-            alert(
-              'Ganha quem escolher o número maior. Escolhendo: ' +
-                jogador1 +
-                ' O Player 01 ganhou!'
-            )
-            //alert("O Player 01 ganhou!");
-          } else {
-            alert(
-              'Ganha quem escolher o número maior. Escolhendo: ' +
-                jogador2 +
-                ' O Player 02 ganhou!'
-            )
-            //alert("O Player 02 ganhou!");
+                  } else {
+                    message = higherWin + jogador2 + p2Win;
+                    alert(p2Win);
+                  }
+                }
+                oneWins();
+              }
+            }
+            // console.log(message + " saída geral: passou *4");
+            console.log(message);
+            solutionBox.innerHTML = message;
           }
         }
+        // console.log("visible on/off" + " saída de impressao: passou *5");                    
+        answer();
       }
+
 
       //if(true){
       //bloco verdade

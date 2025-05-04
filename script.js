@@ -23,3 +23,9 @@ function capitalizeFirstLetter(string) {
     }
     return string.charAt(0).toLocaleUpperCase() + string.slice(1).toLocaleLowerCase();
 }
+
+function emptyInput() {
+    var clearInput = "Ops! Algo ficou faltando, tente novamente.";
+        alert(clearInput);
+        solutionBox.innerHTML = clearInput;
+}
