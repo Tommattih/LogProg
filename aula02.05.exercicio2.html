@@ -4,48 +4,72 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lóg. de Prog. A:02.05.Ex.2</title>
+    <link rel="stylesheet" href="./style.css">
+    <title>Lóg. de Prog. A:02.05.Ex.2 - Short</title>
 </head>
 <body>
-    <h1 style="color: white; background-color: black; font-size: 1.6rem;">
-        Lógica  de programação com Javascript
-    </h1>
+    <h1>Lógica  de programação com Javascript</h1>
     
-    <button>
-        <a href="./index.html" style="color:blue;"> Página inicial</a>
-    </button>
-
-    <h2>
-        <strong style="color: tomato;"> --PROBLEMA-- </strong>
-        <ol style="color: blue">
+    <div class="question">
+        <h2><strong> --PROBLEMA-- </strong></h2>
+        <ol>
             <li>Fazer o jogador1 digitar um número</li> <!-- Registra P1 -->
             <li>Fazer o jogador2 digitar outro número</li> <!-- Registra P2 -->
             <li>Se forem iguais, mostrar mensagem 'Empate!'</li> <!-- Condicional -->
             <li>Sortear um número entre 0 e 1</li> <!-- Boolean -->
-            <li>Se o número sorteado for 0, ganha quem escolher o número <strong>menor</strong>.</li> <!-- Condicional -->
-            <li>Se o número sorteado for 1, ganha quem escolher o número <strong>maior</strong>.</li> <!-- Condicional -->
+            <li>Se o número sorteado for 0, ganha quem escolher o número <em>menor</em>.</li> <!-- Condicional -->
+            <li>Se o número sorteado for 1, ganha quem escolher o número <em>maior</em>.</li> <!-- Condicional -->
         </ol>
-    </h2>
+    </div>
+    
+    <div class="buttons">
+        <button onclick="run()">Run</button>
+        <button><a href="./index.html">Página inicial</a></button>
+    </div>
+    
+    <div class="solution"></div>
+    
+    <script src="./script.js"></script>
     <script>
-        var jogador1 = parseInt(prompt("Player 01, (0 ou 1) Digite um número :"));
-        var jogador2 = parseInt(prompt("Player 02, (0 ou 1) Digite um número: "));
+        visible = false;
+        function run() {
+            var message = "";
+            var p1Win = "Player 1 wins!";
+            var p2Win = "Player 2 wins!";
 
-        if(jogador1 === jogador2){
-            alert("Oh! Empatou!");
+            if (!visible) {
+                var jogador1 = parseInt(prompt("Player 01, Digite um número (0 ou 1):"));
+                var jogador2 = parseInt(prompt("Player 02, Digite um número (0 ou 1):"));
+                
+                if (isNaN(jogador1) || isNaN(jogador2) || jogador1 > 1 || jogador2 > 1) {
+                    emptyInput();
+                } else {
+                    if (jogador1 === jogador2) {
+                        message = "Oh! Empatou!";            
+                        alert(message);
+                    } else {
+                        var sorteio = parseInt(Math.random() * 2);
+                        alert("Número sorteado foi: " + sorteio);
+                        var sortMessage = "O número sorteado foi: " + sorteio + "<br>";
+                                                
+                        //sorteio === 0 -> "Ganha quem escolher o número menor!";
+                        if ((sorteio === 0 && jogador1 < jogador2) || (sorteio === 1 && jogador1 > jogador2)){
+                            message = p1Win;
+                            alert(message);
+                            message = sortMessage + p1Win;
 
-        }else{
-            var sorteio = parseInt(Math.random() * 2);
-            alert("Número sorteado foi: " + sorteio);
-            
-            //sorteio === 0 -> "Ganha quem escolher o número menor!";
-            if((sorteio === 0 && jogador1 < jogador2) || (sorteio === 1 && jogador1 > jogador2)){
-                alert("Player 1 wins!");
-
-            //sorteio === 1 -> "Ganha quem escolher o número maior!";
-            } else {
-                alert("Player 2 wins!");
+                        //sorteio === 1 -> "Ganha quem escolher o número maior!";
+                        } else {
+                            message = p2Win;
+                            alert(message);
+                            message = sortMessage + p2Win;
+                        }
+                    }
+                    solutionBox.innerHTML = message;
+                }
             }
-        };
+            answer();
+        }
 
         //if(true === (math.randon() * 2) && prompt() < prompt() || reverse){
             //if(){    

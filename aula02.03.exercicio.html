@@ -28,7 +28,7 @@
     </div>
     
     <div class="buttons">
-        <button onclick="show()">Run</button>
+        <button onclick="run()">Run</button>
         <button><a href="./index.html"> Página inicial</a></button>
     </div>
     
@@ -40,18 +40,22 @@
         var num1 = null;
         var num2 = null;
 
-        function show() {
-            if (visible !== true) {
+        function run() {
+            if (!visible) {
                 num1 = parseInt(prompt("Digite um número"));
                 num2 = parseInt(prompt("Digite outro número"));
 
-                var division = "O resto da divisão do número " + num1 + " por " + num2 + " é: " + (num1 % num2);
-                var exponentiation = "O número " + num1 + " elevado a " + num2 + " é: " + (num1 ** num2);
-        
-                alert(division);
-                alert(exponentiation);
-
-                solutionBox.innerHTML = division + "<br>" + exponentiation;
+                if (isNaN(num1) || isNaN(num2)) {
+                    emptyInput();
+                } else {
+                    var division = "O resto da divisão do número " + num1 + " por " + num2 + " é: " + (num1 % num2);
+                    var exponentiation = "O número " + num1 + " elevado a " + num2 + " é: " + (num1 ** num2);
+                    
+                    alert(division);
+                    alert(exponentiation);
+                    
+                    solutionBox.innerHTML = division + "<br>" + exponentiation;
+                }
             } 
             answer();
         }        

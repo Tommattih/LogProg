@@ -35,15 +35,14 @@
         var num2 = null;
         var num1 = null; 
         function run() {
-            if (visible !== true) {
+            if (!visible) {
                 num1 = parseInt(prompt("Digite um número")); 
                 num2 = parseInt(prompt("Digite outro número")); 
                 
                 var inputs = "As entradas foram: " + num1 + " e " + num2;
                 
                 if (isNaN(num1) || isNaN(num2)) {                        
-                    alert("Você não digitou os números válidos necessários");
-                    solutionBox.innerHTML = "Tente inserir números válidos da próxima vez";
+                    emptyInput();
                 } else {
                     var multiplication = "A multiplicação é: " + (num1 * num2);
                     var division = "A divisão é: " + (num1 / num2);

@@ -16,7 +16,7 @@
     </div>
 
     <div class="buttons">
-        <button onclick="show()">Run</button>
+        <button onclick="run()">Run</button>
         
         <button><a href="./index.html"> Página inicial</a></button>
     </div>
@@ -28,16 +28,15 @@
         var num1 = null;
         var num2 = null;
 
-        function show() {
-            if (visible !== true) {
+        function run() {
+            if (!visible) {
                 //Pedir para o usuário digitar um número
                 num1 = parseFloat(prompt("Digite um número"));
                 //Pedir para o usuário digitar outro número
                 num2 = parseFloat(prompt("Digite mais um número"));
                 
                 if (isNaN(num1) || isNaN(num2)) {
-                    alert("Opa! Faltou algo!");
-                    solutionBox.innerHTML = "Digite números válidos da próxima vez!";
+                    emptyInput();
                 } else {
                     //**alert(numero 1 + numero 2); retorna a concatenação dos objetos [junta tudo se misturar texto e número] parseInt ou parseFloat, usar () para separar a operação
                     alert("A soma é: " + (num1 + num2));

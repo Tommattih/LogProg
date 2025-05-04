@@ -16,7 +16,7 @@
     </div>
     
     <div class="buttons">
-      <button onclick="show(answer())">Run</button>
+      <button onclick="run()">Run</button>
       <button><a href="./index.html">Página inicial</a></button>
     </div>
 
@@ -25,12 +25,13 @@
     <script src="./script.js"></script>
 
     <script>
-      function show() {
+      function run() {
           var hello = "Hello World!";
-          solutionBox.innerHTML = hello;
-          if (visible) {
+          if (!visible) {
             alert(hello);
-          }
+            solutionBox.innerHTML = hello;
+          } 
+          answer()
         }
     </script>
   </body>

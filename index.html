@@ -18,13 +18,13 @@
       
       <div class="buttons">
         <button onclick="answer()">Run</button>
-        <button onclick="show(visible)">Hello!</button></div>
+        <button onclick="show()">Hello!</button></div>
     </div>
     
     <div class="solution">
       <h3>Aulas & Exercícios</h3>
       <nav>
-        <ol style="color: gray">
+        <ol>
           <li>
             <a href="./aula01.01.html">Aula 1.1: Alert</a>
           </li>
@@ -155,7 +155,7 @@
     <script src="./script.js"></script>
     <script>
       function show() {
-        if (visible == true) {
+        if (visible) {
           alert("Bem-vindo(a)");
         }
       }

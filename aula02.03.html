@@ -33,16 +33,20 @@
         var num2 = null;
         
         function show() {
-            if (visible !== true) {
+            if (!visible) {
                 num1 = parseFloat(prompt("Digite um número:"));
                 num2 = parseFloat(prompt("Digite mais um número:"));
                 
-                var media = (num1 + num2) / 2;
-                var message = "A média entre " + num1 + " e " + num2 + " é: " + media;
-                
-                //alert("A média é: " + ((num1 + num2) / 2)); Resposta mais curta
-                alert(message);
-                solutionBox.innerHTML = message;
+                if (isNaN(num1) || isNaN(num2)) {
+                    emptyInput();
+                } else {
+                    var media = (num1 + num2) / 2;
+                    var message = "A média entre " + num1 + " e " + num2 + " é: " + media;
+                    
+                    //alert("A média é: " + ((num1 + num2) / 2)); Resposta mais curta
+                    alert(message);
+                    solutionBox.innerHTML = message;
+                }
             }
             answer();
         }                                               

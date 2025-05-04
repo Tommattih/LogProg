@@ -2,7 +2,7 @@ var solutionBox = document.querySelector('.solution');
 
 var button = document.querySelector('.buttons > button');
 
-var visible = Boolean;
+var visible = false;
 
 function answer() {
     if (solutionBox.style.display === 'block') {
