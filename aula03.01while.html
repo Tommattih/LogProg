@@ -4,47 +4,62 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
         <title>Lóg. de Prog. A:03.01.Ex while</title>
     </head>
     <body>
 
-        <h1 style="color: white; background-color: black; font-size: 1.6rem;">
-            Lógica  de programação com Javascript
-        </h1>
-    
-        <button>
-            <a href="./index.html" style="color:blue;"> Página inicial</a>
-        </button>
-    
-        <h2>
-            <strong style="color: tomato;"> --PROBLEMA-- </strong>
-            <ol style="color: blue">
-                <li>Pedir para o usuário digitar um número.</li>
-                <li>Mostrar a tabuada do número de  <strong>1 a 1000</strong>.</li>
-            </ol>
-        </h2>
+        <h1>Lógica  de programação com Javascript</h1>
         
-
+        <div class="question">
+            <h2><strong> --PROBLEMA-- </strong></h2>
+            <ol>
+                <li>Pedir para o usuário digitar um número.</li>
+                <li>Mostrar a tabuada do número de  <em>0 a 100</em>.</li>
+            </ol>
+        </div>
+        
+        <div class="buttons">
+            <button onclick="run()">Run</button>
+            <button><a href="./index.html">Página inicial</a></button>
+        </div>
+        
+        <div class="solution"></div>
+        
+        <script src="./script.js"></script>
         <script>
-            var num = parseInt(prompt("Digite um número:"));
-            alert("tabuada do: " + num);
-            
-            // document.write(num + ' x 2 = '+ (num * 2) + ' <br>');
-            // document.write(num + ' x 3 = '+ (num * 3) + ' <br>');
-            // document.write(num + ' x 4 = '+ (num * 4) + ' <br>'); ...melhor não
-            
-            var indice = 1;
-            //computador repita até que o indice seja <= 1000
-            
-            while(indice <= 1000){
-                document.write(num + ' x ' + indice + ' = '+ (num * indice) + ' <br>');
+            function run() {
+                if (!visible) {
+                    var num = parseInt(prompt("Digite um número:"));
+                    var message = "";
+                    
+                    if (isNaN(num)) {
+                        emptyInput();
+                    } else {
+                        message = "Tabuada do: " + num;
+                        alert(message);
+                        solutionBox.innerHTML = message + '<br>';
 
-                indice = indice + 1;
+                        var indice = 0;
+                        //computador repita até que o indice seja <= 1000*
+                        
+                        while(indice <= 100){
+                            // document.write(num + ' x 2 = '+ (num * 2) + ' <br>');
+                            // document.write(num + ' x 3 = '+ (num * 3) + ' <br>');
+                            // document.write(num + ' x 4 = '+ (num * 4) + ' <br>'); ...melhor não
+                            // document.write(num + ' x ' + indice + ' = '+ (num * indice) + ' <br>'); resolve
+                            if (indice % 10 === 0 && indice !== 100) {
+                                solutionBox.innerHTML += '<hr>';
+                            }
+                            solutionBox.innerHTML += '<br>' + num + ' x ' + indice + ' = '+ (num * indice);
+                            indice++;
+                        }
+                        // document.write('saiu do loop')
+                        console.log('saiu do loop')
+                    }
+                }
+                answer();
             }
-
-            document.write('saiu do loop')
-
-
         //  for
         //  while
         //  do ... while

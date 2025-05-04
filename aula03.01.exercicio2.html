@@ -4,47 +4,56 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="./style.css">
         <title>Lóg. de Prog. A:03.01.Ex.2</title>
     </head>
     <body>
 
-        <h1 style="color: white; background-color: black; font-size: 1.6rem;">
-            Lógica  de programação com Javascript
-        </h1>
-    
-        <button>
-            <a href="./index.html" style="color:blue;"> Página inicial</a>
-        </button>
-    
-        <h2>
-            <strong style="color: tomato;"> --PROBLEMA-- </strong>
-            <ol style="color: blue">
-                <li>Mostrar anos bissextos até 2021.</li>
+        <h1>Lógica  de programação com Javascript</h1>
+        
+        <div class="question">
+            <h2><strong> --PROBLEMA-- </strong></h2>
+            <ol>
+                <li>Mostrar anos bissextos até 2025.</li>
                 <li>Com início em 1004</li>
                 <li>O ano não pode ser um multiplo de 100</li>
                 <li>O ano será bissexto se for um multiplo de 400</li>
             </ol>
-        </h2>
+        </div>
         
+        <div class="buttons">
+            <button onclick="run()">Run</button>
+            <button><a href="./index.html">Página inicial</a></button>
+        </div>
 
+        <div class="solution"></div>
+
+        <script src="./script.js"></script>
         <script>
-            var ano = 1004;
+            function run() {
+                if (!visible) {
 
-            while(ano <= 2021){
-
-                if( !(ano % 100 === 0) || (ano % 400 === 0)){
-                document.write(ano + ' <br>');
-
-                } else {
-                    document.write(ano + 'não é ano bissexto!<br>');
-
+                    var ano = 1004;
+                    
+                    while(ano <= 2026){
+                        
+                        if (!(ano % 100 === 0) || (ano % 400 === 0)){
+                            solutionBox.innerHTML += ano + ' <br>';
+                            // document.write(ano + ' <br>');
+                            
+                        } else {
+                            solutionBox.innerHTML += `<span style="color: red;">( ( ( ${ano} ) ) )<br>Não foi um ano bissexto!<br>`;
+                            
+                        }
+                        
+                        //ano = ano + 4;
+                        ano += 4;
+                    }
                 }
-
-                //ano = ano + 4;
-                ano += 4;
+                answer();
             }
-            
-            
+                    
+                    
         //  for
         //  while
         //  do ... while

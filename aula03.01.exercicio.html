@@ -4,47 +4,61 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="./style.css">
         <title>Lóg. de Prog. A:03.01.Ex for</title>
     </head>
     <body>
-
-        <h1 style="color: white; background-color: black; font-size: 1.6rem;">
-            Lógica  de programação com Javascript
-        </h1>
-    
-        <button>
-            <a href="./index.html" style="color:blue;"> Página inicial</a>
-        </button>
-    
-        <h2>
-            <strong style="color: tomato;"> --PROBLEMA-- </strong>
-            <ol style="color: blue">
-                <li>Pedir para o usuário digitar um número.</li>
-                <li>Mostrar a tabuada do número de  <strong>1 a 1000</strong>.</li>
-                <li>Com divisão de 10 em 10</li>
-            </ol>
-        </h2>
-        
-
-        <script>
-            var num = parseInt(prompt("Digite um número:"));
-            alert("tabuada do: " + num);
-
-            var indice = 0;
-
-            while(indice <= 1000){
-                document.write(num + ' x ' + indice + ' = '+ (num * indice) + ' <br>');
-
-                if(indice % 10 === 0 && indice > 0){
-                    document.write('<hr>');
-                }
+        <h1>Lógica  de programação com Javascript</h1>
                 
-                indice = indice + 1;
+        <div class="question">
+            <h2><strong> --PROBLEMA-- </strong></h2>
+            <ol>
+                <li>Pedir para o usuário digitar um número.</li>
+                <li>Mostrar a tabuada do número de <em>1 a 1000</em>.</li>
+                <li>Com divisões de 10 em 10</li>
+            </ol>
+        </div>
+        
+        <div class="buttons">
+            <button onclick="run()">Run</button>
+            <button><a href="./index.html">Página inicial</a></button>
+        </div>
+
+        <div class="solution"></div>
+
+        <script src="./script.js"></script>
+        <script>
+            function run() {
+                if (!visible) {
+                    var message = "";
+                    var num = parseInt(prompt("Digite um número:"));
+                    var breakLine = "<br><hr><br>";
+
+                    if (isNaN(num)) {
+                        emptyInput();
+                    } else {                        
+                        message = "Tabuada do número: " + num;
+                        alert(message);
+                        solutionBox.innerHTML = message + breakLine;
+                        
+                        var indice = 0;
+                        
+                        while(indice <= 1000){
+                            if(indice % 10 === 0 && indice > 0){
+                                solutionBox.innerHTML += breakLine;
+                            }
+                            solutionBox.innerHTML += num + " x " + indice + " = " + (num * indice) +  "<br>";
+                            console.log(indice)
+                            
+                            indice = indice + 1;
+                        }
+                        console.log("saiu do loop");
+                        // document.write('saiu do loop');
+                    }
+                }
+                answer();
             }
 
-            document.write('saiu do loop');
-            
-            
         //  for
         //  while
         //  do ... while

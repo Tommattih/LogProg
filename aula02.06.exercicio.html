@@ -4,52 +4,78 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>Lóg. de Prog. A:02.06.Ex</title>
 </head>
 <body>
-    <h1 style="color: white; background-color: black; font-size: 1.6rem;">
-        Lógica  de programação com Javascript
-    </h1>
+    <h1>Lógica  de programação com Javascript</h1>
     
-    <button>
-        <a href="./index.html" style="color:blue;"> Página inicial</a>
-    </button>
-
-    <h2>
-        <strong style="color: tomato;"> --PROBLEMA-- </strong>
-        <ol style="color: blue">
-            <li>Pedir para o usuário digitar um número de <strong>0 a 10</strong>.</li>
+    <div class="question">
+        <h2><strong> --PROBLEMA-- </strong></h2>
+        <ol>
+            <li>Pedir para o usuário digitar um número de <em>0 a 10</em>.</li>
             <li>Mostrar uma mensagem diferente para cada número digitado.</li>
         </ol>
-    </h2>
-        
-    <!-- Entendi melhor que a explicação ..rs -->
+    </div>
     
+    <div class="buttons">
+        <button onclick="run()">Run</button>
+        <button><a href="./index.html">Página inicial</a></button>
+    </div>
+    
+    <div class="solution"></div>
+
+    <script src="./script.js"></script>
+    <!-- Entendi melhor que a explicação ..rs -->
     <script>
-        var seuNum = parseFloat(prompt("Digite uma nota de 0 a 10: "));
-
-        if(num === 1){
-            alert("Errou! Tente outra vez.");
+        function run() {
+            var num = parseFloat(prompt("Digite uma nota de 0 a 10: "));
+            var message = "";
+            if (isNaN(num)) {
+                emptyInput();
+            } else {
+                if(num === 0) {
+                    message = "Que vazio! Não é esse.";
+                }
+                if(num === 1) {
+                    message = "Errou! 1/3 do caminho. Tente outra vez.";
+                }
+                if(num === 2) {
+                    message = "Quase. Tente de novo.";
+                }
+                if(num === 3) {
+                    message = "Parabéns, você achou!";
+                }
+                if(num === 4) {
+                message = "Na trave. Tente novamente.";
+                }
+                if(num === 5) {
+                    message = "Não foi dessa vez. Outra chance?";
+                }
+                if(num === 6) {
+                    message = "Aposta em dobro! Outra chance?";
+                }
+                if(num === 7) {
+                    message = "Ainda não achou.";
+                }
+                if(num === 8) {
+                    message = "Até que é parecido, mas não."; 
+                }
+                if(num === 9) {
+                    message = "Passou algumas vezes.";
+                }
+                if(num === 10) {
+                    message = "Nossa, que disposição! Mas tambem não.";
+                }
+                if (num > 10) {
+                    message = "Sério? Você nem está tentando.";
+                }
+                alert(message);
+                // console.log("Seu número foi: " + num + "<br>" + message);
+                solutionBox.innerHTML = "Seu número foi: " + num + "<br>" + message;
+            }
+            answer();
         }
-
-        if(num === 2){
-            alert("Quase. Tente de novo.");
-        }
-
-        if(num === 3){
-            alert("Parabéns, você achou!");
-        }
-
-        if(num === 4){
-            alert("Na trave. Tente novamente.");
-        }
-
-        if(num === 5){
-            alert("Não foi dessa vez. Outra chance?");
-        } else {
-            alert("Sério? Você nem está tentando.");
-        }
-        
             //<!-- o exemplo [sem mensagem de reprovação automática]: -->
 
             //if(n1 === 0 || n2 === 0 || media <= 5){

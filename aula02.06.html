@@ -4,39 +4,58 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
     <title>Lóg. de Prog. A:02.06</title>
 </head>
 <body>
-    <h1 style="color: white; background-color: black; font-size: 1.6rem;">
-        Lógica  de programação com Javascript
-    </h1>
+    <h1>Lógica  de programação com Javascript</h1>
     
-    <button>
-        <a href="./index.html" style="color:blue;"> Página inicial</a>
-    </button>
-
-    <h2>
-        <strong style="color: tomato;"> --PROBLEMA-- </strong>
-        <ol style="color: blue">
-            <li>Pedir para o usuário digitar dois números e mostrar uma mensagem informando se foi aprovada ou não.</li>
-            <li>A nota de corte é 5.</li>
-            <li>Contudo, se qualquer uma das notas for zero, reprova automaticamente</li>
+    <div class="question">
+        <h2><strong> --PROBLEMA-- </strong></h2>
+        <ol>
+            <li>Pedir para o usuário digitar dois números de <em>0 a 10</em> e mostrar uma mensagem informando se foi aprovada ou não.</li>
+            <li>A nota de corte é <em>5</em>.</li>
+            <li>Contudo, se qualquer uma das notas for <em>zero</em>, reprova automaticamente</li>
         </ol>
-    </h2>
+    </div>
         
-    <!-- Entendi melhor que a explicação ..rs -->
+    <div class="buttons">
+        <button onclick="run()">Run</button>
+        <button><a href="./index.html"> Página inicial</a></button>
+    </div>    
     
+    <div class="solution"></div>
+
+    <script src="./script.js"></script>
     <script>
-        var n1 = parseFloat(prompt("Digite uma nota de 0 a 10: "));
-        var n2 = parseFloat(prompt("Digite outra nota de 0 a 10: "));
-
-        var media = (n1 + n2) / 2;
-
-        if(media > 5 && n1 > 0 && n2 > 0){
-            alert("Parabéns, foi aprovado!");
-        } else {
-            alert("Desculpe, não foi dessa vez, tente de novo.");
+        function run() {
+            if (!visible) {
+                var n1 = parseFloat(prompt("Digite uma nota de 0 a 10: "));
+                var n2 = parseFloat(prompt("Digite outra nota de 0 a 10: "));
+                
+                if (isNaN(n1) || isNaN(n2) || n1 > 10 || n2 > 10) {
+                    emptyInput();
+                } else {
+                    var media = (n1 + n2) / 2;
+                    var message = "";
+                    
+                    if (media >= 5 && n1 > 0 && n2 > 0){
+                        message = "Parabéns, foi aprovado!";
+                    } else {
+                        message = "Desculpe, não foi dessa vez, tente de novo.";
+                    }
+                    alert(message);
+                    if (n1 == 0 || n2 == 0) {
+                        message = "Por ter zerado uma das notas, você reprovou. <br>" + message;
+                    }
+                    solutionBox.innerHTML = message + "<br>" + "1ª Nota: " + n1 + " | 2ª Nota: " + n2 + "<br>" +  "Sua média foi: " + media + ".";
+                }
+            }
+            answer();
         }
+
+
+        
         
         //    || -> ou / or
         //    && -> e / and
