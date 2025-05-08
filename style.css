@@ -100,3 +100,8 @@ body {
     90% { background-color: steelblue; }
     100% { background-color: darkgoldenrod; }
 }
+
+.math {
+    display: flex;
+    justify-content: center;
+}

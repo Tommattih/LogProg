@@ -4,77 +4,96 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>Lóg. de Prog. A:04.01.Ex</title>
 </head>
 <body>
-    <h1 style="color: white; background-color: black; font-size: 1.6rem;">
-        Lógica de programação com Javascript
-    </h1>
+    <h1>Lógica de programação com Javascript</h1>
     
-    <button>
-        <a href="./index.html" style="color:blue;"> Página inicial</a>
-    </button>
-    
-    <h2>
-        <strong style="color: tomato;"> --PROBLEMA-- </strong>
-        <ol style="color: blue">
+    <div class="question">
+        <h2><strong> --PROBLEMA-- </strong></h2>
+        <ol>
             <li>Pedir para o usuário digitar um número</li>
             <li>Converter em um número inteiro</li>
             <li>Exibir botões com os operadores matemáticos</li>
             <li>Ao clicar no operador, pedir pra inserir outro número</li>
             <li>Concatenar o resultado a cada nova operação</li>
         </ol>
-    </h2>
-    
-    <button onclick="soma()">+</button>
-    <button onclick="subtracao()">-</button>
-    <button onclick="multiplicacao()">x</button>
-    <button onclick="divisao()">/</button>
-    
-    <div id="output">Resultado:</div>
-    
-    <script>
-        
-        var num1 = parseFloat(prompt("Digite um número"));
-        var resultado = num1;
-        
-        function escreve(){
-            var output = document.querySelector('#output');
-            output.innerHTML = resultado;
-        }
-        
-        escreve();
+    </div>
 
-        function soma(){
-            
-            var num2 = parseFloat(prompt("Digite outro número"));
-            resultado += num2;
-            output.innerHTML = resultado;
-            
-        }
+    <div class="buttons">
+        <button onclick="run()">Run</button>
+        <button><a href="./index.html">Página inicial</a></button>
+    </div>
         
-        function subtracao(){
-            
-            var num2 = parseFloat(prompt("Digite outro número"));
-            resultado -= num2;
-            output.innerHTML = resultado;
-            
-        }
-        function multiplicacao(){
-            
-            var num2 = parseFloat(prompt("Digite outro número"));
-            resultado *= num2;
-            output.innerHTML = resultado;
-            
-        }
-        function divisao(){
-            
-            var num2 = parseFloat(prompt("Digite outro número"));
-            resultado /= num2;
-            output.innerHTML = resultado;
-            
-        }
+    <div class="math">
+        <button onclick="soma()">+</button>
+        <button onclick="subtracao()">-</button>
+        <button onclick="multiplicacao()">x</button>
+        <button onclick="divisao()">/</button>
+    </div>
+    
+    <div class="solution"></div>  
+    
+    <!-- <div id="output">Resultado:</div> -->
+    
+    <script src="./script.js"></script>
+    <script>
+        // daqui pra baixo é o codigo antigo
+        var num1 = null;
+        var num2 = null;
+        var resultado = null;
+
         
+        function run() {
+            if (!visible) {
+                num1 = parseFloat(prompt("Digite um número"));
+                // resultado = num1;
+                if (isNaN(num1)) {
+                    emptyInput();
+                } else {
+                    resultado = num1; // Inicializa o resultado com o valor de num1
+                    solutionBox.innerHTML = `Número inicial: ${num1}<br>`;
+                }
+            }
+            answer();    
+    }
+            
+            // Função genérica para executar operações
+            function executarOperacao(operador, operacao) {
+                num2 = parseFloat(prompt("Digite outro número:"));
+                if (isNaN(num2)) {
+                    emptyInput();
+                    return;
+                }
+                
+                const previousResult = resultado; // Armazena o valor atual de resultado
+                resultado = operacao(previousResult, num2); // Executa a operação passada como parâmetro
+                solutionBox.innerHTML += `${previousResult} ${operador} ${num2} = ${resultado}<br>`; // Exibe o cálculo
+            }
+            
+            // Funções específicas para cada operação
+            function soma() {
+                executarOperacao("+", (a, b) => a + b);
+            }
+            
+            function subtracao() {
+                executarOperacao("-", (a, b) => a - b);
+            }
+            
+            function multiplicacao() {
+                executarOperacao("x", (a, b) => a * b);
+            }
+            
+            function divisao() {
+                executarOperacao("÷", (a, b) => {
+                    if (b === 0) {
+                        alert("Divisão por zero não é permitida!");
+                        return resultado; // Retorna o resultado atual sem alterações
+                    }
+                    return a / b;
+                });
+            }
         </script>
 </body>
 </html>
