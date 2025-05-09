@@ -4,65 +4,103 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
         <title>Lóg. de Prog. A:04.01</title>
     </head>
     <body>
 
-        <h1 style="color: white; background-color: black; font-size: 1.6rem;">
-            Lógica  de programação com Javascript
-        </h1>
-    
-        <button>
-            <a href="./index.html" style="color:blue;"> Página inicial</a>
-        </button>
-    
-        <h2>
-            <strong style="color: tomato;"> --PROBLEMA-- </strong>
-            <ol style="color: blue">
+        <h1>Lógica  de programação com Javascript</h1>
+                    
+        <div class="question">
+            <h2><strong> --PROBLEMA-- </strong></h2>
+            <ol>
                 <li>Pedir para o usuário digitar um número</li>
-                <li>Mostrar a tabuada desse número de 1 a 1000</li>
+                <li>Mostrar a tabuada desse número de 1 a 500</li>
                 <li>Deve ter a possibilidade do usuário digitar outro numero</li>
                 <li>E também, limpar a tabuada gerada previamente</li>
             </ol>
-        </h2>
+        </div>
         
-        <button onclick="mostrarTabuada()">Ciar tabuada</button>
-        <button onclick="limparTabuada()">Limpar tabuada</button>
+        <div class="buttons">
+            <button onclick="run()">Run</button>
+            <button><a href="./index.html">Página inicial</a></button>
+        </div>
+        <div class="solution">
+            <button onclick="criarTabuada()">Ciar tabuada</button>
+            <button onclick="limparTabuada()">Limpar tabuada</button>
+            <div id="output">Resultado</div>
+        </div>    
         
-        <div id="output">Resultado</div>
-        
+        <script src="./script.js"></script>
         <script>
-            function mostrarTabuada(){
-                limparTabuada()
-                //Perguntar o numero para o usuario
-                //converter o numero
-                var num = parseFloat(prompt('Digite um número'));
-
-                //criar uma variável que servira de indice
-                var i = 1;
-                
-                //enquanto indice <= 1000
-                while(i < 1001){
-                    //concatena na variavel 'mensagem'
-                    mensagem += num + ' x ' +  i  + ' = ' + (num*i) + '<br>';
-                    i++;
-
+            function run() {
+                if (visible) {
+                    limparTabuada();
+                    console.log("Tabuada limpa");
+                } else {
+                    criarTabuada();
                 }
+                answer();
+            }
+            var overwrite = '';
+            var output = document.querySelector('#output');
+            var mensagem = '';
+            
+            function criarTabuada() {
+            //Perguntar o numero para o usuario, converter o numero
+            
+            var num = parseFloat(prompt('Digite um número'));
+            var i = 1;
+                if (isNaN(num)) {
+                    mensagem = clearInput;
+                    output.innerHTML = mensagem;
+                    mensagem = '';
+                } else {                
+                    //criar uma variável que servira de indice
+                    //enquanto indice <= 1000
+                    while(i <= 500) {
+                        //concatena na variavel 'mensagem'
+                        mensagem += num + ' x ' +  i  + ' = ' + (num*i) + '<br>';
+                        i++;
+                    }
+                    output.innerHTML = mensagem;
+                    mensagem = '';
                     //mostra mensagem no output            
-                output.innerHTML = mensagem;
-                // output.innerHTML = 'Text added by innerHTML on Js'
+                    // output.innerHTML = 'Text added by innerHTML on Js'
+                }
             }
 
             function limparTabuada(){
                 alert('Deseja excluir?');
                 mensagem = '';
-                output.innerHTML = mensagem
+                output.innerHTML = mensagem;
             }
+            
 
-            var output = document.querySelector('#output');
-
-            var mensagem = '';
-
+            // function mostrarTabuada(){
+            //     limparTabuada()
+            //     //Perguntar o numero para o usuario
+            //     //converter o numero
+            //     var num = parseFloat(prompt('Digite um número'));
+            //     //criar uma variável que servira de indice
+            //     var i = 1;
+            //     //enquanto indice <= 1000
+            //     while(i < 501){
+            //         //concatena na variavel 'mensagem'
+            //         mensagem += num + ' x ' +  i  + ' = ' + (num*i) + '<br>';
+            //         i++;
+            //     }
+            //         //mostra mensagem no output            
+            //     output.innerHTML = mensagem;
+            //     // output.innerHTML = 'Text added by innerHTML on Js'
+            // }
+            // function limparTabuada(){
+            //     alert('Deseja excluir?');
+            //     mensagem = '';
+            //     output.innerHTML = mensagem
+            // }
+            // var output = document.querySelector('#output');
+            // var mensagem = '';
 
         //  for
         //  while
