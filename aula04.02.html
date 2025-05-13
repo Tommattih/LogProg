@@ -4,37 +4,60 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>Lóg. de Prog. A:04.02</title>
 </head>
 <body>
-    <h1 style="color: white; background-color: black; font-size: 1.6rem;">
-        Lógica de programação com Javascript
-    </h1>
+    <h1>Lógica de programação com Javascript</h1>
     
-    <button>
-        <a href="./index.html" style="color:blue;"> Página inicial</a>
-    </button>
-
-    <h2>
-        <strong style="color: tomato;"> --PROBLEMA-- </strong>
-        <ol style="color: blue">
+    <div class="question">
+        <h2><strong> --PROBLEMA-- </strong></h2>
+        <ol>
             <li>Pedir para o usuário digitar dois números que represetam os lados de um retangulo</li>
             <li>Isso, assim que a página for carregada</li>
             <li>Mostrar na tela a área total quando clicar num botão</li>
-    </h2>
+        </ol>
+    </div>
+        
+    <div class="buttons">
+        <button onclick="run()">Run</button>
+        <button><a href="./index.html">Página inicial</a></button>
+    </div>
     
-    <button onclick="mostrarArea(largura, altura)">Calcular área</button>
+    <div class="solution">
+        <button onclick="mostrarArea()">Calcular área</button>
+        <button onclick="limpar()">Limpar</button>
+        <div id="output"></div>
+    </div>
     
-    <div id="output">Lado x Lado</div>
-    
+    <script src="./script.js"></script>   
     <script>
-        
-        var largura = parseFloat(prompt("Digite a largura"));
-        var altura = parseFloat(prompt("Digite a altura"));
-        
-        function mostrarArea(l, a){
-            alert('Área total é: ' + (l * a));
+        function run() {
+            if (!visible) {
+                mostrarArea();
+            }
+            answer();
         }
+
+        var mensagem = '';
+        var output = document.querySelector('#output');
+        
+        function mostrarArea() {
+            var largura = parseFloat(prompt("Digite a largura"));
+            var altura = parseFloat(prompt("Digite a altura"));
+            if (isNaN(largura) || isNaN(altura)) {
+                mensagem += '<br><hr>' + clearInput;
+            } else {
+                alert('Área total é: ' + (largura * altura));
+                mensagem += `<hr>Lado x Lado <br> ${largura} x ${altura}`;
+                mensagem += `<br> Área total é: ${largura * altura}`;
+            }
+            output.innerHTML = mensagem;
+        }
+        function limpar() {
+            output.innerHTML = '';
+            mensagem = '';
+        }   
 
     </script>
 </body>
