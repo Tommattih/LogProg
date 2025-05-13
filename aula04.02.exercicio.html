@@ -4,20 +4,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>Lóg. de Prog. A:04.02.Ex</title>
 </head>
 <body>
-    <h1 style="color: white; background-color: black; font-size: 1.6rem;">
-        Lógica de programação com Javascript
-    </h1>
+    <h1>Lógica de programação com Javascript</h1>
     
-    <button>
-        <a href="./index.html" style="color:blue;"> Página inicial</a>
-    </button>
-
-    <h2>
-        <strong style="color: tomato;"> --PROBLEMA-- </strong>
-        <ol style="color: blue">
+    <div class="question">
+        <h2><strong> --PROBLEMA-- </strong></h2>
+        <ol>
             <li>Pedir para o usuário digitar um número</li>
             <li>Converter em um número inteiro</li>
             <li>Exibir botões com os operadores matemáticos</li>
@@ -25,46 +20,82 @@
             <li>Concatenar o resultado a cada nova operação</li>
             <li>Código aprimorado, função única que aproveite o input dos operadores</li>
         </ol>
-    </h2>
+    </div>
     
-    <button onclick="calcular('+')">+</button>
-    <button onclick="calcular('-')">-</button>
-    <button onclick="calcular('*')">x</button>
-    <button onclick="calcular('/')">/</button>
+    <div class="buttons">
+        <button onclick="run()">Run</button>
+        <button><a href="./index.html">Página inicial</a></button>
+    </div>
     
-    <div id="output">Resultado:</div>
-    
+    <div class="solution">
+        <button onclick="calcular('+')">+</button>
+        <button onclick="calcular('-')">-</button>
+        <button onclick="calcular('*')">x</button>
+        <button onclick="calcular('/')">/</button>
+        <div id="output">Resultado:</div>
+    </div>
+        
+    <script src="./script.js"></script>
     <script>
-        
-        var num1 = parseFloat(prompt("Digite um número"));
-        
-        function escreve(){
-            var output = document.querySelector('#output');
-            output.innerHTML = num1;
+        function run() {
+            if (!visible) {
+                console.log("visivel");
+                escreve();
+            } else {
+                console.log("oculto");
+            }
+            answer();
         }
-        
-        escreve();
+                
+        var output = document.querySelector('#output');
+        var mensagem = '';
+        var num1 = null;
+        var num2 = null;
+
+        function escreve() {
+            num1 = parseFloat(prompt("Digite um número"));
+            if (isNaN(num1)) {
+                mensagem = clearInput;
+                mensagem = '';
+            } else {
+                output.innerHTML = num1;
+            }
+        }
 
         function calcular(operador){
             var num2 = parseFloat(prompt("Digite outro número"));
-            
-            switch(operador){
-                case '+': 
-                    num1 += num2;
+            if (!isNaN(num2) && !isNaN(num1)) {                
+                switch(operador){
+                    case '+': 
+                        mensagem += `<br> ${num1} ${operador} ${num2} = ${num1+=num2}`;
+                        // num1 += num2;
+                        break;
+                    case '-': 
+                        mensagem += `<br> ${num1} ${operador} ${num2} = ${num1-=num2}`;
+                        // num1 -= num2;
+                        break;
+                    case '*': 
+                        mensagem += `<br> ${num1} ${operador} ${num2} = ${num1*=num2}`;
+                        // num1 *= num2;
+                        break;
+                    case '/': 
+                        if (num2 === 0) {
+                            mensagem = "Divisão por zero não é permitida!";
+                            output.innerHTML = mensagem;
+                        } else {
+                            mensagem += `<br> ${num1} ${operador} ${num2} = ${num1/=num2}`;
+                            // num1 /= num2;
+                        }
                     break;
-                case '-': 
-                    num1 -= num2;
-                    break;
-                case '*': 
-                    num1 *= num2;
-                    break;
-                case '/': 
-                    num1 /= num2;
+                }
+            } else {
+                mensagem = clearInput;
+                output.innerHTML = mensagem;
+                mensagem = "";
             }
-
-            escreve()
+            output.innerHTML = mensagem;
         }
-        
+        // colocar <br> no final de cada operação ou no começo, e tirar a concatenação da mensagem de saída, passando-o para o começo da string nas operações 
         </script>
 </body>
 </html>
